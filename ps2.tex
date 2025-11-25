@@ -1,0 +1,137 @@
+\documentclass{homework}
+
+\title{Introduction to String Theory H2}
+\author{Panos Oikonomou}
+
+\begin{document}
+
+\maketitle
+
+\problem[1]
+Both $\beta$ and $L$ have dimension of inverse energy, therefore the free energy must be of the form
+\[
+F(\beta,L) = a \frac{L}{\beta^2}. 
+\]
+Notice $a$ can, in principle, still contain terms of the form $(L/\beta)^n$ for some $n\in \mathbb{Z}$. To show that $n=0$ we use the fact that the free energy is extensive, and there is only one extensive variable $L$. Since for any $C \in \mathbb{R}$ we have that $F(\beta,CL) = CF(\beta,L)$ the only possible form is fixed up to a constant $a$ independent of $L/\beta$.
+
+To figure out the sign of the constant we have that the energy of the system must be positive, therefore
+\[
+E = \frac{d \beta F}{d \beta} = -a \frac{L}{\beta^2} = -F \implies a < 0.
+\]
+There is also some Linear $D$ dependence that we have hidden in $a$.
+
+\problem*[2]
+We have found the sign of $a$ above. Rearranging the definition of the free energy and using $E = -F$, from the previous part, we have that
+\[
+F = E - \frac{1}{\beta} S \iff S = 2 \beta E = \sqrt{-4aL E},
+\]
+where in the last step we used $E = -a L/\beta^2$. The multiplicity of states $d_N$ defines the number of microstates, therefore $S =\log d_n$ (in units where $k=1$). Plugging this back in we have
+\[
+d_n = \exp \sqrt{-4aLE}.
+\]
+$D$ free bosons at a line with length $L$ with Neumann boundary conditions have can be written in terms of discrete modes using Fourier Series with frequencies $\omega_n = \pi n/L$, therefore the Hamiltonian is given by
+\[
+E =H = \sum_{i=1}^D\sum_{n=0}^\infty\omega_n a_n^{i\dagger} a_n^i = \sum_{i=1}^D\sum_{n=0}^{\infty} \frac{\pi}{L} n a_n^{i\dagger} a_n^i = \sum_{i=1}^D\sum_{n=0}^{\infty} \frac{\pi}{L} \alpha_n^{i\dagger} \alpha_n^i = \frac{\pi}{L}N 
+\]
+where $N$ is the equivalent of the number operator we defined when we quantized a bosonic string embedded in $\mathbb{R}^{D+2}$ up to normal ordering ambiguities. At $\alpha'M^2 \gg 1$ we have from the quantization condition $\alpha' M^2 = n - \frac{D-2}{24}$ we see that $n$ is large enough for the normal ordering ambiguities not to matter, and effectively we have that $LE = \langle LH \rangle = \langle \pi N \rangle = \pi n$. As a result we can plug in to our equation and obtain
+% In lightcone quantization we have that $M^2 = 2p^+p^- +\vec{p}^2$, where $p^-$ is the momentum along $x^+$ translations. Therefore we can solve for the Hamiltonian to be
+% \[
+% H = \frac{M^2 - \vec{p}^2}{2p^{+}}.
+% \]
+% To derive a thermodynamic relation between $E = \langle H \rangle$ and $L$ we need to relate $L$ with $p^{+}$. Let's pick a gauge in which $X^+ = x^+ + l_s^2 k \tau$ where we have not yet fixed the choice of $k \in \mathbb{R}^\times$. If our worldsheet has length $L$, then we see that  
+% \begin{multline*}
+% p^+ = - p_{-} = -\int_{0}^L \left[ \frac{\delta \mathcal{L}}{\delta \dot X^{0}} - \frac{\delta \mathcal{L}}{\delta \dot X^{D+1}} \right] d\sigma = -\frac{1}{2\pi \alpha '}\int_{0}^L[\eta_{0\mu} - \eta_{D+1,\mu}] \dot X^\mu d\sigma \\= \frac{1}{\sqrt{2}\pi \alpha '}\int_{0}^L \dot X^+d\sigma = \frac{L k \sqrt2}{\pi}.
+% \end{multline*}
+% (We have used that for a theory of $D$ free bosons we have to consider an $\mathbb{R}^{D+2}$ embedding) The open string mass-shell condition that we derived in class, was with the choice $a = p^+$, for the different $a$ it will have to change, because now we have that $\alpha^+_0 = x^+ + l_2^2 a$  
+% We find that $p^+ = \frac{L}{2\pi \alpha'}$ if we fix the string coordinate to go from $0$ to $L$, which then implies that for large $\alpha' M^2$ our Hamiltonian is given by
+\[
+\boxed{d_n \simeq \exp \sqrt{-4\pi a n}.}
+\]
+\problem*[3]
+In the open string picture we have seen that we can calculate $d_N$ in a different way. For a complex number $w$ we can define the character $\text{tr\,}w^N$ and obtain the coefficient in front of $w^N$. We have also seen that
+\[
+\text{tr\,}w^{N} = \prod_{n \in \mathbb{N}}(1-w^n)^{-D} \xRightarrow{D=1} \text{tr\,} w^N = \frac{e^{\frac{\pi i \tau}{12}}}{\eta(\tau)} 
+\]
+where we wrote $w = e^{2\pi i \tau}$ for $\text{Im\,}\tau > 0$. Then we can calculate the coefficient
+\[
+d_n = \frac{1}{2\pi i}\int_{S^1} \frac{w^{\frac{1}{24} -n-1}dw}{\eta(\tau)} = \frac{1}{2\pi i}\int_{0}^1 \frac{e^{-2\pi i \tau\left( n-\frac{1}{24} \right)}}{\eta(\tau)} d\tau.
+\]
+For large $n$ we might be tempted to approximate this integral using the stationary phase approximation. However, the issue is that the exponent is a linear function in $\tau$ so there is no stationary point. To fix this we need a couple of tricks. First we notice that $\eta(\tau + 1) = e^{\frac{i\pi}{12}} \eta(\tau)$, so we find that $\text{tr\,}(e^{2\pi i (\tau + 1)})^N = \text{tr\,}(e^{2\pi i \tau})^N$. This means that we can push the contour up in the imaginary $\tau$ direction, arbitrarily and the left and right contributions will always cancel!
+
+Let's push it up by $h>0$ and effectively get the integral over a contour $\gamma$ defined by $z = \tau + ih$ for $\tau \in [0,1]$. Then we can rewrite the integral as
+\[
+d_n = \frac{1}{2\pi i}\int_{\gamma}\exp\left[-2\pi i z\left(  n - \frac{1}{24}\right) - \log \eta(z)\right]dz, 
+\]
+Now let's take the exponent and identify saddle points as well as the path that crosses the saddle point with negative second derivative for the real part. One thing we can use is that if the imaginary part of $z$ is really large, then $e^{2\pi i n z} \to 0$ for any $n>0$, therefore in that regime $\eta(z) \simeq e^{\frac{\pi i z}{12}}$ which is the contribution from the first factor.  
+
+Let's look at the function for small $h>0$ in that case we can use the modular transformation $\sqrt{-iz}\,\eta(z) = \eta(-1/z)$ and the fact that the imaginary part of $-1/z$ is large to obtain
+\[
+\eta(z)^{-1} \simeq \sqrt{-iz} \, e^{\frac{\pi  i}{12z}}. \implies - \log \eta(z) \simeq \frac{\pi i}{12z} + \frac{1}{2} \log -iz.
+\]
+% Going into the open string calculation we have done, we found that for large $N$ (notice that for a theory of $D$ bosons the target space of the corresponding bosonic string is $D+2$ dimensional because we have gauge fixed two modes out) there is some function $f(D)$ and some constant $C >0$ that we don't need for this argument such that
+% \[
+% d_N \simeq C N^{f(D)} \exp 2\pi \sqrt{\frac{ND}{6}} \implies \log d_N \simeq 2\pi \sqrt{\frac{ND}{6}}  + f(D) \log n + \log C.
+% \]
+
+For large $n$ the dominant term is the first one in the exponent. With this, assuming large $n$ and doing the coordinate transformation $\sqrt{n} z = x$ we can write the integral as  
+\begin{align*}
+d_n \simeq \frac{1}{2\pi i \sqrt{n}} \int_{\gamma'} e^{2\pi \sqrt{n} f(x)} dx && f(x) = ix + \frac{1}{24 ix}.
+\end{align*} 
+This has a stationary point at $f'(x_\ast) = 0$ where $x_\ast = \frac{i}{\sqrt{24}}$. To find the path we want to use for our stationary approximation we can define $y = x_\ast +ct$ for some phase $c \in U(1)$ and real $t$, and find which phase gives us the smallest real part for the second derivative. That is
+\[
+f(x^\ast + ct)= f(x^\ast) + \frac{1}{2}f''(x^\ast)ct + \mathcal{O}(|t|^2) = -\frac{1}{\sqrt{6}} -\sqrt{24} ct + \mathcal{O}(|t|^2).
+\]
+The $c$ that minimizes the real part is $c = 1$, therefore the path that we want to integrate along is parallel to the real $x$ axis! All this really means is that the integral can be approximated for large $n$ by 
+\[
+d_n = e^{2\pi \sqrt{n}f(x_\ast)} g(x_\ast) = e^{2\pi \sqrt{\frac{n}{6}}} g(x_\ast),
+\]
+where $g({x_\ast})$ is some power series in $1/\sqrt{n}$ of order $\mathcal{O}(1/\sqrt{n})$ which for this problem we don't need to calculate as when we take the $\log$ its contributions are subleading. Comparing with the equation we derived before to we just got we have
+\[
+\sqrt{-4\pi aN} \simeq \log d_n \simeq 2\pi \sqrt{\frac{N}{6}} \implies \boxed{a = -\frac{\pi}{6}.}
+\]
+\problem*[4]
+The transformation law of the stress tensor is given by
+\begin{align*}
+\delta_{\epsilon}T(z) &= [Q_{\epsilon,}T(z)] 
+=  \frac{1}{2\pi i} \int_{\gamma_0}dw\, [\epsilon(w)T(w),T(z)] 
+= \frac{1}{2\pi i} \int_{\gamma_z} dw\, \epsilon(w)T(w) T(z)
+\end{align*} 
+where $Q_\epsilon$ is the conserved charge of a holomorphic transformation $\epsilon(z) = \sum_{n\in \mathbb{Z}}\epsilon_n z^{n+1}$, $\gamma_z$ is an embedding of a circle centered at $z \in \mathbb{C}$, and radial ordering is implicit. We use the stress tensor ope to calculate
+\begin{align*}
+\delta_{\epsilon}T(z)
+&= \frac{1}{2\pi i}\int_{\gamma_z}dw \left[ \frac{c \epsilon(w)}{2(w-z)^4} + \frac{2 \epsilon(w)}{(w-z)^2}T(z) + \frac{\epsilon(w)}{w-z} T'(z) + f(w,z) \right],
+\end{align*} 
+where $f(w,z)$ is some term regular around $w=z$. Now we need to calculate the residues (notice that $f, \text{ and } \epsilon$ are regular at $z$). To do so, consider the Laurent expansion of $\epsilon(w)/(w-z)^{k}$ around $z$. We have that
+\begin{align*}
+\frac{\epsilon(w)}{(w-z)^k} = \sum_{n=0}^{\infty}  \frac{\epsilon^{(n)}(z)(w-z)^{n}}{(w-z)^k n!} = \sum_{n = -k}^{\infty} \frac{\epsilon^{(k+n)}(z)}{(k+n)!}(w-z)^{n} \implies \text{Res\,}_z \frac{\epsilon(w)}{(w-z)^k} = \frac{\epsilon^{(k-1)}(z)}{(k-1)!}.
+\end{align*} 
+Therefore the residues in the integral above are 
+\begin{align*}
+\text{Res\,}_z\frac{\epsilon(w)}{(w-z)^4} &= \frac{\epsilon'''(z)}{3!} &\text{Res\,}_z\frac{\epsilon(w)}{(w-z)^2} &= \epsilon'(z) &
+\text{Res\,}_z\frac{\epsilon(w)}{w-z} &= \epsilon(z) &
+\text{Res\,}_z\epsilon(w)f(w) &= 0.
+\end{align*} 
+Now we can plug these back in to obtain 
+\begin{align*}
+\delta_{\epsilon} T(z) 
+&= \frac{c}{12} \epsilon'''(z) + 2 \epsilon'(z) T(z) + \epsilon(z) T'(z).
+\end{align*} 
+
+\problem*[5]
+We know that $T = \sum_{n\in \mathbb{Z}} L_n z^{-n-2}$, therefore we can expand
+\begin{align*}
+[L_m,\Phi_{n-h}] = -\frac{1}{4\pi^2}\int_{\gamma_0} dz\, z^{m+1} \int_{\gamma_0}dw\, w^{n - 1} [T(z),\phi(w)] = -\frac{1}{4\pi^2}\int_{\gamma_0} \int_{\gamma_z} dz dw\, z^{m+1} w^{n - 1} T(z)\phi(w), 
+\end{align*} 
+where again, the $R$ in radial ordering is French. Now we want to calculate the OPE of $T$ and $\phi$, but we know thta $\phi$ is a primary, therefore we can immdiately plug in
+\begin{align*}
+[L_m,\Phi_{n-h}] &= -\frac{1}{4\pi^2}\int_{\gamma_0} \int_{\gamma_z} dz dw\, z^{m+1} w^{n - 1} \left[\frac{h\phi(w)}{(z-w)^2} + \frac{\phi'(w)}{z-w} + f(w,z)\right],
+\end{align*} 
+where $f$ is a regular function at $w=z$. Using the residue formula we derived before we have that 
+\begin{align*}
+[L_m,\Phi_{n-h}] &= \frac{1}{2\pi i}\int_{\gamma_0} dw\, \left[ h(m+1) w^{m+n-1}\phi(w) + \phi'(w)w^{m+n}\right]\\
+&= h(m+1) \Phi_{m+n - h} - \frac{1}{2\pi i} \sum_{k \in \mathbb{Z}} \int_{\gamma_0}k \Phi_{k-h} w^{-k +m + n -1}\\
+&= h(m+1) \Phi_{m+n - h} - (m+n)\Phi_{m+n -h}\\
+&= \boxed{[m(h-1) -(h+n)] \Phi_{m+n-h}.}
+\end{align*} 
+
+\end{document}

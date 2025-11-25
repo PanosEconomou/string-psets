@@ -1,0 +1,163 @@
+\documentclass{homework}
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\title{Introduction to String Theory H1}
+\author{Panos Oikonomou}
+
+\begin{document}
+
+\maketitle
+
+\problem[1]
+For an open string, we can write them in terms of $\alpha^{\mu}_n$ by
+\[
+J^{\mu\nu} = x^\mu p^\nu - x^\nu p^\mu - i\sum_{n=1}^\infty \frac{1}{n}\left( \alpha_{-n}^\mu \alpha_{n}^\nu - \alpha_{-n}^\nu \alpha_n^\mu \right).
+\]
+The closed string expression is the same but with a term there that commutes with all the $\alpha_m^\rho$ for $m>0$, so I will just use this for both cases. Notice that $\alpha_0^\mu= \lambda p^\mu$ where $\lambda = l_s/2$ for the open string and $\lambda = l_s$ for the closed one. Eitherway, we can show that
+\[
+[x^\mu p^\nu, \alpha_0^\rho] = \lambda [x^\mu,p^\rho] p^\nu = i \eta^{\mu\rho} \alpha^\nu_0,
+\]
+while the term commutes with the rest of them. Similarly for $m,n\neq0$ we have
+\[
+\frac{1}{n} [\alpha_{-n}^\mu \alpha_{n}^\nu,\alpha_{m}^\rho] = \frac{1}{n} \alpha_{-n}^\mu[\alpha_{n}^\nu,\alpha_{m}^\rho] + \frac{1}{n} [\alpha_{-n}^\mu ,\alpha_{m}^\rho] \alpha_{n}^\nu = \eta^{\nu\rho} \alpha_{-n}^\mu \delta_{n+m} - \eta^{\mu\rho} \delta_{n-m} \alpha_{n}^\nu
+\]
+We can now plug everything in to obtain
+\begin{align*}
+[J^{\mu\nu},\alpha_{m}^\rho] = i\delta_{m,0} (\eta^{\mu\rho} \alpha_m^\nu - \eta^{\nu\rho} \alpha_{m}^\mu) +i \sum_{n=1}^{\infty} \left[\delta_{n,-m}(\eta^{\mu\rho} \alpha_{-n}^\nu - \eta^{\nu\rho} \alpha_{-n}^\mu) + \delta_{n,m}(\eta^{\mu\rho} \alpha_{n}^\nu - \eta^{\nu\rho} \alpha_{n}^\mu)\right].
+\end{align*} 
+Noticing that the sum is from $n=1$ we see that either the first or the second term vanish based on the sign of $m\neq 0$. Putting everything together we obtain for any $m,n\in \mathbb{Z}$
+\[
+\boxed{[J^{\mu\nu},\alpha_m^\rho] = i\left(\eta^{\mu\rho}\alpha_m^\nu - \eta^{\nu \rho}\alpha_m^\mu\right).}
+\]
+Now to show that the Lorenz currents commute with the Viraosoro generators we write
+\begin{align*}
+L_0 = \frac{1}{2}\alpha_0^2 + \sum _{n=1}^\infty \alpha_{-n} \cdot \alpha_n && L_m = \frac{1}{2}\sum_{n=-\infty}^\infty \alpha_{m-n} \cdot \alpha_n.
+\end{align*} 
+Then we have that for any $m,n \in \mathbb{Z}$
+\begin{align*}
+[J^{\mu\nu},\alpha_{m}\cdot \alpha_n] 
+&= \eta_{\rho\sigma}\left( [J^{\mu\nu},\alpha_{m}^{\rho}]\alpha_n^\sigma + \alpha_{m}^\rho[J^{\mu\nu},\alpha_{n}^\sigma] \right)\\
+&= i\eta_{\rho\sigma}\left(\eta^{\mu\rho}\alpha_m{m}^\nu\alpha_n^\sigma - \eta^{\nu \rho}\alpha_m{m}^\mu\alpha_n^\sigma + \alpha_{m}^\rho\eta^{\mu\sigma}\alpha_m^\nu - \alpha_{m}^\rho\eta^{\nu \sigma}\alpha_m^\mu \right)\\
+&= i(\alpha_{m}^{\nu} \alpha_{n}^{\mu} - \alpha_{m}^\mu \alpha_n^\nu + \alpha_{m}^\mu \alpha_n^\nu - \alpha_{m}^\nu \alpha_n^\mu)\\
+&= 0
+\end{align*} 
+This shows that $[J^{\mu\nu},L_m] = 0$.
+\problem[2]
+A state is physical if
+\begin{align*}
+(L_0 - a) \Phi &= 0\\
+L_1 \Phi &= 0\\
+L_2 \Phi &= 1.
+\end{align*} 
+Using our identities from the previous problem we can calculate for any $m,r \in \mathbb{Z}$
+\[
+[\alpha_{m-n} \cdot \alpha_n,\alpha_{r}^{\mu} ] = \eta_{\nu\rho}\left( \alpha_{m-n}^\nu [\alpha_{n}^\rho,\alpha_r^\mu] + [\alpha_{m-n}^\nu,\alpha_r^\mu] \alpha_{n}^\rho\right)= -r(\delta_{n+r}\alpha_{m-n}^{\mu} + \delta_{m-n+r}\alpha_{n}^{\mu}).
+\]
+This implies that for $m \neq 0$
+\[
+[L_m,\alpha_{r}^\mu] = \frac{r}{2}\sum_{n=-\infty}^{\infty} (\delta_{n+r}\alpha_{m-n}^{\mu} + \delta_{m-n+r}\alpha_{n}^{\mu}) = -r \alpha_{n+m}^\mu.
+\]
+Similarly for $m=0$ we find that $[L_0,\alpha_r^\mu] = -r\alpha_{r}^{\mu}$. Using this we can calculate
+\[
+[L_n,\alpha_m \cdot \alpha_r] = [L_n,\alpha_m] \cdot \alpha_r + \alpha_m \cdot [L_n,\alpha_r] = -m \alpha_{n+m} \cdot \alpha_r - r \alpha_m \cdot \alpha_{r+n}.
+\]
+Finally, let's notice that for the open string $L_0 \ket{0,k} = \frac{k^2}{2} \ket{0,k}$ and $L_m \ket{0,k} =0$ for $m>0$. Now we are ready to solve for our equation and using the identities we derived above we find that
+\[
+L_0 \Phi = \frac{k^2}{2} \Phi + 2\Phi \implies a = \frac{k^2}{2} + 2,
+\]
+then we use them more explicitly to calculate (assuming that we are embedding the worldsheet into $\mathbb{R}^D$)
+\begin{align*}
+0 &= L_{1} \Phi = 2 a_0 \cdot a_{-1} (A + B + C a_0^2) \ket{0,k}\\
+0 &= L_{2} \Phi = \left[(D+ \alpha_{-1} \cdot \alpha_1) A + 2a_0^2B + C(a_0^2+2(\alpha_0 \cdot \alpha_{-1})(\alpha_0 \cdot \alpha_1))\right] \ket{0,k}.
+\end{align*} 
+Using the fact that $\alpha_m^\mu \ket{0,k} = 0$ for any $m>0$ we arrive to our system being
+\[
+\begin{pmatrix}
+    1 & 1 & k^2\\
+    D & 2k^2 & k^2 
+\end{pmatrix} \begin{pmatrix}
+    A\\B\\C
+\end{pmatrix} = 0,
+\]
+which has solutions for any $\lambda \in\mathbb{C}$
+\[
+\begin{pmatrix}A\\B\\C\end{pmatrix} = \frac{\lambda}{2k^2 - D}\begin{pmatrix}k^2 (1-2k^2)\\k^2(D-1)\\2k^2 - D\end{pmatrix} = \frac{\lambda}{4a -8 - D}\begin{pmatrix}(2a-4) (9-4a)\\(2a-4)(D-1)\\4a-8 - D\end{pmatrix}
+\]
+
+\problem[3]
+
+If we set $n = 1$ this implies that $k^2 = -2$. Our solutions from the previous part simplify to
+\[
+\begin{pmatrix}A\\B\\C\end{pmatrix} = \frac{\lambda}{D+ 4}\begin{pmatrix}10\\2(D-1)\\ D+4\end{pmatrix}.
+\]
+When we take the inner product, only terms with paired $\alpha_m$ and $\alpha_{-m}$ expressions could survive. To avoid ambiguities with Dirac notation and Hermitian conjugation, let's introduce the notation $v_{k} = \ket{0,k}$, then given a $\lambda \in \mathbb{C}$ a physical state for $a=1$ is written as
+\[
+\Phi = \frac{\lambda}{D+4}\left[  10 \alpha_{-1}\cdot \alpha_{-1} + 2(D-1) \alpha_0 \cdot \alpha_{-2} + (D+4)(\alpha_0 \cdot \alpha_{-1})^2\right] v_{k}.
+\]
+without loss of generality we can pick $\lambda = D+4$ to get rid of the prefactor. The norm is given by $\langle \Phi,\Phi \rangle$. Using the results of problem 2 we can derive the useful identity
+\begin{align*}
+[\alpha_{m}\cdot\alpha_{n},\alpha_{r} \cdot \alpha_{s}] &=[\alpha_{m}\cdot \alpha_n,\alpha_{r}] \cdot \alpha_{s} + \alpha_{r} \cdot [\alpha_{m}\cdot \alpha_n,\alpha_{s}]\\
+&= -r\left[ \delta_{n,-r} \alpha_{m} + \delta_{m,-r} \alpha_{n}\right] \cdot \alpha_{s} -s\alpha_{r}\cdot \left[ \delta_{n,-s} \alpha_{m} + \delta_{m,-s} \alpha_{n}\right].
+\end{align*} 
+The terms that don't immediately vanish in this inner product are calculated below where $\alpha_m v_k = 0$ for $m>0$ is heavily used to simplify notation
+\begin{align*}
+\langle v_{k}, (\alpha_{1}\cdot \alpha_{1})(\alpha_{-1}\cdot \alpha_{-1}) v_k\rangle 
+&=\langle v_k,2\alpha_{1} \cdot \alpha_{-1} v_k\rangle = 2D\\
+\langle v_{k}, (\alpha_{0}\cdot \alpha_{1})^2(\alpha_{-1}\cdot \alpha_{-1}) v_k\rangle 
+&= 2\langle v_k,(\alpha_0\cdot \alpha_{1})(\alpha_{0}\cdot \alpha_{-1}) v_k \rangle = 2\langle v_k,\alpha_0^2 v_k \rangle = 2k^2\\
+\langle v_{k}, (\alpha_{0}\cdot \alpha_{2})(\alpha_{0}\cdot \alpha_{-2}) v_k\rangle 
+&= \langle v_k , 2\alpha_0^2  v_k\rangle = 2k^2\\
+\langle v_{k}, (\alpha_{0}\cdot \alpha_{1})^2(\alpha_{0}\cdot \alpha_{-1})^2 v_k\rangle 
+&= \langle v_k, (\alpha_0 \cdot \alpha_{1})[\alpha_{0}^2 + (\alpha_{0} \cdot \alpha_{-1})(\alpha_{0} \cdot \alpha_{1})](\alpha_0 \cdot \alpha_{-1}) v_k\rangle\\
+&= k^2\langle v_k, (\alpha_0 \cdot \alpha_{1})(\alpha_0 \cdot \alpha_{-1}) v_k\rangle + \langle v_k,\left[(\alpha_0 \cdot \alpha_{1})(\alpha_{0} \cdot \alpha_{-1})\right]^2v_k\rangle\\
+&= k^4 + k^2\langle v_k, (\alpha_0 \cdot \alpha_{1})(\alpha_0 \cdot \alpha_{-1}) v_k\rangle = 2 k^4.
+\end{align*} 
+Notice that $k^2 = -2$ when we set $a=1$. Therefore we can finally calculate
+\begin{align*}
+\langle \Phi,\Phi \rangle &= 2DA^2 +4k^2AC + 2k^2 B^2 + 2k^4 C^2\\
+&=  -8 D^2 +216 D -208
+\end{align*} 
+Therefore we get that $D\leq 26$ in order for this to be nonnegative (we also have that $D>2$ for the embedding). 
+
+\problem[4]
+Consider some $m\neq 2$. Then let's calculate the following commutators.
+\begin{align*}
+[[L_{m-1},L_{-m}],L_{1}] &=(2m - 1) [L_{-1},L_{1}] = -(2m-1)L_0 - (2m-1)A(1)\\
+[[L_{1},L_{m-1}],L_{-m}] &=-(m-2)[L_m,L_{-m}] = -2m(m-2) L_0 -(m-2)A(m)\\
+[[L_{-m},L_{1}],L_{m-1}] &= -(m+1)[L_{-(m-1)},L_{m-1}] = 2(m+1)(m-1)L_0 + (m+1)A(m-1),
+\end{align*} 
+Notice that we have used the fact that $A(m) = -A(-m)$ which comes from $0=[L_{-m},L_m] + [L_{m},L_{-m}] = A(-m) + A(m)$. By Jacobi's identity their sum should vanish. After using the fact that $A(1) = 0$ is a valid choice we have 
+\[
+A(m) = \frac{m+1}{m-2}A(m-1),
+\]
+The issue is that this formula doesn't hold for $m=2$, so we leave $A(2)$ arbitrary and continue to solve our recursion for $m>2$ to get
+\[
+A(m) = A(2)\prod_{n=3}^m\frac{n+1}{n-2} = A(2) \frac{\prod_{n=4}^{m+1} n}{\prod_{n=1}^{m-2}n} = A(2) \frac{(m+1)!}{3! (m-2)!} = (m+1)m(m-1) \frac{A(2)}{6}.
+\]
+Similarly we can repeat the same arugment to solve for $m<2$ and obtain
+\[
+A(m) = A(2)\prod_{n=m}^3\frac{n+1}{n-2} = A(2) \frac{\prod_{n=m+1}^{4} n}{\prod_{n=m-2}^{1}n} = (m+1)m(m-1) \frac{A(2)}{6},
+\]
+here we can't use factorials, but the last step can be carried out the same way.
+
+\problem[5]
+We know that in canonical quantization the theory is that of $D$ bosonic oscillators. Therefore, all we need to do is to calculate the central charge there. Notice that
+\[
+[L_2,L_{-2}] = 4L_0 + A(2).
+\]
+Since the algebra doesn't change, it doesn't matter if we evaluate this in a physical or unphysical state. Therefore we can pick the state $v = \ket{0,0}$ which satisfies $L_0 v = 0$. $L_{\pm}= \sum_{n=-\infty}^\infty \alpha_{\pm2-n}\cdot \alpha_{2}$. Using the commutation relations we derived in problem 2 we can now calculate the commutator to be
+\begin{align*}
+A(2) 
+&= \langle v,[L_{2},L_{-2}]v\rangle\\
+&= \langle v,L_2 L_{-2} v \rangle\\
+&= \frac{1}{2} \langle v,\sum_{m = -\infty}^{\infty} L_{2}(\alpha_{-2-m}\cdot \alpha_{m} )v \rangle\\
+&= \frac{1}{2} \langle v, \sum_{m=1}^{\infty} L_2(\alpha_{-2+m}\cdot \alpha_{-m}) v\rangle\\
+&= \frac{1}{2} \langle v, \sum_{m=1}^{\infty} L_2(\alpha_{-m}\cdot \alpha_{-2 + m}) v\rangle\\
+&= \frac{1}{2} \langle v, L_2(\alpha_{-1}\cdot \alpha_{-1}) v\rangle\\
+&= \frac{1}{2} \langle v, \alpha_{1}\cdot \alpha_{-1}\rangle\\
+&= \frac{1}{2} \langle v, D v\rangle\\
+&= \frac{D}{2}
+\end{align*}
+where we used that $v$ is a vacuum state with momentum $0$ to get rid of terms of the form $\langle v,\cdots \alpha_m v \rangle$ for $m>0$, as well as $[\alpha_{1},\alpha_{-1}] = D$.
+
+\end{document}

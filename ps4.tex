@@ -1,0 +1,115 @@
+\documentclass{homework}
+
+\title{Introduction to String Theory H4}
+\author{Panos Oikonomou}
+
+\begin{document}
+
+\maketitle
+
+\problem[1]
+Since $b$ is anticommuting with $Q$ we calculate $\{b,Q'\} = \{b,Q\} + 37\{b,c\} = 37.$ Now pick any vector $\psi \in \ker Q'$ from there we have
+\[
+0 = bQ' \psi = -Q' b\psi + 37 \psi \iff \psi = Q'\left( b\frac{\psi}{37} \right) \implies \psi \in \text{im\,}Q'.
+\]
+Therefore $\mathbb{H}(Q') = \{0\}$.
+
+\problem*[2]
+The equations (for $D=26$) are given by
+\begin{align*}
+0=\beta^{G}_{\mu\nu} &= \alpha'R_{\mu\nu}+ 2 \alpha'\nabla_\nu\nabla_\nu\Phi + \mathcal{O}({\alpha'}^2)\\
+0=\beta^{\Phi} &= -\frac{\alpha'}{2} \nabla^2\Phi + \alpha' \nabla_\mu\Phi\nabla^\mu\Phi + \mathcal{O}({\alpha'}^2).
+\end{align*} 
+To linearize we substitute $G = \eta + \epsilon h$, $\Phi = \Phi_0 + \epsilon \phi$ for some $\epsilon>0$. Then all Christoffel symbols are obtained by raising derivatives of the metric $G$ so they will all be $\mathcal{O}(\epsilon)$ and of the form
+\[
+\Gamma_{\mu\nu}^\rho = \frac{\epsilon}{2}\eta^{\rho \alpha}\left( \partial_{\nu}h_{\mu \alpha} + \partial_\mu h_{\nu \alpha} - \partial_\alpha h_{\mu \nu} \right) + \mathcal{O}(\epsilon^2).
+\]
+For the Ricci tensor we have that
+\begin{align*}
+R_{\mu\nu} &= \partial_{\beta}\Gamma^\beta_{\mu\nu} - \partial_{\nu} \Gamma^\beta_{\beta\mu} + \mathcal{O}(\epsilon^2)\\
+&= \frac{\epsilon}{2}\eta^{\beta \alpha}\left(  \partial_{\beta} \partial_{\nu}h_{\mu \alpha} +  \partial_{\beta}\partial_\mu h_{\nu \alpha} -  \partial_{\beta}\partial_\alpha h_{\mu \nu} \right) - \frac{\epsilon}{2}\eta^{\beta \alpha}\left( \partial_{\nu} \partial_{\mu}h_{\beta \alpha} + \partial_{\nu}\partial_\beta h_{\mu \alpha} - \partial_{\nu}\partial_\alpha h_{\beta \mu} \right) + \mathcal{O}(\epsilon^2).\\
+&= \frac{\epsilon}{2} \left( \partial^\alpha \partial_{\nu} h_{\mu \alpha} + \partial^{\alpha}\partial_{\mu} h_{\nu\alpha} - \partial^\alpha\partial_{\alpha} h_{\mu\nu} - \partial_{\nu}\partial_{\mu} h^{\ \alpha}_{\alpha} - \cancel{\partial_{\nu}\partial^\alpha h_{\mu\alpha}} + \cancel{\partial_{\nu}\partial^{\alpha} h_{\alpha \mu}}\right) + \mathcal{O}(\epsilon^2)\\
+&= \frac{\epsilon}{2} \left(2 \partial^\alpha \partial_{(\nu} h_{\mu) \alpha} -\Box h_{\mu\nu} - \partial_\nu \partial_\mu h  \right) + \mathcal{O}(\epsilon^2).
+\end{align*} 
+where $h = h^{\ \alpha}_{\alpha}$ here is the trace of the perturbation. Since $\nabla \Phi = d\Phi$ we have that up to leading order in $\epsilon$
+\begin{align*}
+\nabla_\mu \nabla_\nu\Phi &= \epsilon \partial_\mu \partial_{\nu} \phi +\mathcal{O}(\epsilon^2)\\
+\nabla_{\mu}\Phi \nabla^{\mu} \Phi &= \epsilon^2 \partial_\mu \phi\partial^\mu\phi +\mathcal{O}(\epsilon^3)\\
+\nabla^2 \Phi &= \nabla_\mu \partial^\mu \Phi = \epsilon \partial_\mu \partial^\mu \phi +\mathcal{O}(\epsilon^2) = \epsilon \Box \phi +\mathcal{O}(\epsilon^2).
+\end{align*} 
+Therefore, to first order in $\epsilon$ after absorbing it into the definitions of $h$ and $\phi$ we have that 
+\begin{align*}
+0 &= \partial^\alpha \partial_{(\nu} h_{\mu) \alpha} - \frac{1}{2} \Box h_{\mu\nu} - \frac{1}{2} \partial_{\mu}\partial_{\nu} h + 2 \partial_{\mu}\partial_{\nu} \phi + \mathcal{O}({\alpha'})\\
+0 &=  \Box \phi + \mathcal{O}({\alpha'}).
+\end{align*} 
+\problem*[3]
+Transverse and on shell means that the first two terms in the first equation above vanish. As a result, it becomes
+\[
+\partial_{\mu} \partial_{\nu} h = 4 \partial_{\mu} \partial_{\nu} \phi + \mathcal{O}({\alpha'}),
+\]
+which means that $h$ and $4\phi$ have the same Hessian. As a result we can write $h = 4\phi + \chi$  with $\chi$ a function with zero Hessian in Minkowski space. Such a function is of the form $\chi (x) = \alpha_\mu x^\mu + \beta$, for some vector $\alpha$ and some number $\beta$. If we impose that the trace does not blow up asymptotically, we have that
+\[
+\boxed{h = 4\phi + \beta,}
+\]
+for some $\beta \in \mathbb{R}$.
+\problem*[4]
+We are only interested in the leading singular term of the $T(z)T(w)$ OPE. This seems to be Polchinski's normalization for the Linear dilaton CFT but with $\alpha' = 1/2$. Using this normalization we have that
+\[
+\langle \partial X(z)\partial X(w)\rangle = -\frac{1}{4(z-w)^2}.
+\]
+Now we can calculate the leading term of the OPE by doing Wick contractions. The ones that contribute are
+\begin{align*}
+T(z)T(w) 
+&= 4{:}\partial X\partial X{:}(z){:}\partial X\partial X{:}(w) + Q^2 \partial^2 X(z) \partial^2 X(w)\\
+& \ \ \ -2 Q\partial^2X(z) {:}\partial X\partial X{:} (w) -2 Q{:}\partial X\partial X{:} (z) \partial^2 X(w) \\
+&= 8\langle \partial X(z)\partial X(w) \rangle^2 +Q^2 \partial_z \partial_w \left[\partial X(z) \partial X(w) \right] + \cdots\\
+&= \frac{1}{2(z-w)^4} + Q^2 \partial_z \partial_w \langle \partial X(z)\partial X(w) \rangle + \cdots\\
+&= \frac{1 + 3 Q^2}{2(z-w)^4} + \cdots,
+\end{align*} 
+where the $\cdots$ contain terms with subleading divergences and regular terms. Since $X$ has a valid Taylor expansion, terms hidden in $\cdots$ won't contribute to the leading singularity. Therefore we can read off the central charge
+\[
+\boxed{c = 1 + 3 Q^2.}
+\]
+\problem*[5]
+We can write
+\[
+V(z) ={:}e^{\alpha X(z)}{:} = \sum_{n=0}^\infty \frac{\alpha^n}{n!} {:}X^n{:}(z).
+\]
+Then we can calculate
+\begin{align*}
+\partial^2 X(z) V(w) 
+&= \sum_{n=0}^\infty \frac{\alpha^n}{n!}  \partial^2 X(z) {:}X^n{:}(w) \\ 
+&= \sum_{n=1}^\infty \frac{\alpha^{n}n}{n!} \langle \partial^2 X(z) X(w)\rangle {:}X^{n-1}{:}(w) \\
+&=\frac{\alpha}{4(z-w)^2} V(w) + \cdots,
+\end{align*} 
+where we have used ${:}1{:} = 0$. Let's also figure out the double contraction. 
+\begin{align*}
+{:}\partial X\partial X{:}(z) V(w) 
+&=\sum_{n=0}^{\infty} \frac{\alpha^n}{n!}{:}\partial X\partial X{:}(z) {:}X^n{:}(w)\\
+&= 2\langle \partial X(z) X(w) \rangle\sum_{n=1}^{\infty} \frac{\alpha^{n}}{(n-1)!}{:}\partial X(z) X^{n-1}(w){:} \\
+&\ \ \ + \alpha^2 \langle \partial X(z) X(w) \rangle^2 \sum_{n=2}^\infty \frac{\alpha^{n-2}}{(n-2)!} {:}X^{n-2}{:}(w)\\
+&= -\frac{1}{2(z-w)} \partial \sum^{\infty}_{n=1} \frac{\alpha^n}{(n-1)! n} {:}X^n{:}(w) + \frac{\alpha^2}{16(z-w)^2} V(w) + \cdots\\
+&=-\frac{1}{4(z-w)} \partial V(w) + \frac{\alpha^2}{16(z-w)^2} V(w) + \cdots,
+\end{align*} 
+where we have used that $\frac{1}{z-w} \partial X(z) = \frac{1}{z-w} \partial X(w) + \cdots$ with $\cdots$ denoting regular terms. There we have that We can now calculate the contractions with the stress tensor
+\begin{align*}
+T(z) V(w)
+&= -2{:}\partial X\partial X{:}(z) V(w) + Q \partial^2 X(z) V(w)\\
+&= \frac{-\alpha^2 + 2\alpha Q}{8} \frac{1}{(z-w)^2} V(w) + \frac{1}{z-w} \partial V(w) + \cdots,
+\end{align*} 
+so this operator is primary, with conformal weight $h = \frac{-\alpha^2 + 2\alpha Q}{8}$.
+\problem*[6]
+In Polchinski's conventions we have that
+\[
+\delta_\omega\langle T_{z\bar z}(w) \rangle = - \frac{1}{2\pi} \int d\sigma^2 \, \omega(\sigma) \langle T^\alpha_{\ \alpha}(\sigma) T_{z\bar z}(w) \rangle = -\frac{2}{\pi} \int d\sigma^2 \, \omega(\sigma) \langle T_{z\bar z}(\sigma) T_{z\bar z}(w) \rangle,
+\]
+where we have used that $T^\alpha_{\ \alpha} = 4T_{z\bar z}$. We calculate the left hand side by
+\[
+\delta_{\omega} \langle T_{z\bar z}(w) \rangle = -\frac{c}{48} \left.\frac{d }{d \epsilon}\right|_0 R[(1+2\epsilon \omega)dzd\bar z] = \frac{c}{6} \partial \bar \partial \omega(z),
+\]
+where we used the hint. Therefore, using equating both sides we see that
+\[
+\boxed{\langle T_{z\bar z}(z) T_{z\bar z}(w) \rangle =- \frac{c\pi }{12}\partial \bar \partial \delta(z-w).} 
+\]
+
+\end{document}

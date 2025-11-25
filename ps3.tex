@@ -1,0 +1,116 @@
+\documentclass{homework}
+
+\title{Introduction to String Theory H3}
+\author{Panos Oikonomou}
+
+\begin{document}
+
+\maketitle
+
+\problem[1]
+We will first show that for fermionic operators the anticommutation relations can be calculated similarly to the bosonic commutation relations using the updated radial ordering prescription. Consider any two fermionic fields $a(z),b(z)$ a closed contour $\gamma_w$ around $w \in \mathbb{C}$, then there exist counter-clockwise contours $\gamma_0$ and $\gamma_0'$ around the origin where $\gamma_0'$ is in the interior of $\gamma_0$ such that
+\begin{align*}
+\int_{\gamma_w} \mathcal{R}a(z) b(w)dz 
+&= \int_{\gamma_0} a(z) b(w)dz + \int_{\gamma_0'} b(w)a(z)dz\\
+&= \int_{\gamma_0} a(z) b(w)dz + \int_{\gamma_0} b(w)a(z)dz\\
+&= \left[\int_{\gamma_0}a(z)dz,b(w)\right]_+.
+\end{align*} 
+where we used our updated radial ordering rules and the anti-commutation relations of $\psi$, and that $\gamma_0$ and $\gamma_0'$ are homologous. In our case we can write
+\[
+\int_{\gamma_0}dz\, z^{n-1} \psi(z) = \sum_{m\in \mathbb{Z}}\int_{\gamma_0} dz \, z^{n-1} \psi_{m-\frac{1}{2}} z ^{-m} = 2\pi i\, \psi_{n-\frac{1}{2}},
+\]
+where we have shifted our summing variable $k\in \mathbb{Z}-\frac{1}{2}$ to $m = k + \frac{1}{2}$. Now we calculate our commutators the way we know how
+\begin{align*}
+[\psi_{n-\frac{1}{2}},\psi_{m-\frac{1}{2}}]_+ 
+&= -\frac{1}{4\pi ^2}\int_{\gamma_0} dw \int_{\gamma_w} dz\, \mathcal{R}\psi(z) \psi(w) z^{n-1} w^{m-1}\\
+&= -\frac{1}{4\pi ^2}\int_{\gamma_0} dw \int_{\gamma_w} dz\, \frac{z^{n-1} w^{m-1}}{z-w}\\
+&= \frac{1}{2\pi i} \int_{\gamma_0} dw\, w^{n+m-2}\\
+&= \delta_{n+m,1}.
+\end{align*} 
+If we want to write this in terms of variables in $\mathbb{Z}-\frac{1}{2}$ we have
+\[
+\boxed{[\psi_{n},\psi_{m}]_+  = \delta_{n,-m}}
+\]
+
+\problem[2 (a)]
+We know that $b,c$ are fermionic and that they obey the OPE $b(z) c(w) = (z-w)^{-1}$. Therefore we can calculate their OPE's with the stress tensor as follows (here regular terms are dropped)
+\begin{align*}
+    T(z)b(w) &= -\lambda {:}  b\partial c {:}(z) b(w) +(\lambda -1) {:}c\partial b{:}(z) b(w)\\
+    &= \frac{\lambda}{(z-w)^2} b(z) -\frac{\lambda - 1}{z-w} \partial b(z) \\
+    &= \frac{\lambda}{(z-w)^2}[b(z) + \partial b(z)(w-z)] + \frac{1}{z-w} \partial b(z)\\
+    &= \frac{\lambda}{(z-w)^2} b(w) + \frac{1}{z-w} \partial b(w),
+\end{align*}
+where in the last line we used $b(z)$'s Taylor expansion. Similarly for $c$ we have
+\begin{align*}
+    T(z)c(w) &= -\lambda {:}  b\partial c {:}(z) c(w) +(\lambda -1) {:}c\partial b{:}(z) c(w)\\
+    &= \frac{\lambda}{z-w} \partial c(z) - \frac{\lambda - 1}{(z-w)^2} c(z) \\
+    &= -\frac{\lambda - 1}{(z-w)^2}[c(z) + \partial c(z)(w-z)] + \frac{1}{z-w} \partial c(z) \\
+    &= \frac{1-\lambda}{(z-w)^2} c(w) + \frac{1}{z-w} \partial c(w).
+\end{align*}
+So we see that $b$ and $c$ are primaries with conformal weights $\lambda$ and $1-\lambda$ respectively.
+\problem*[2 (b)]
+We can find the central charge by calculating the ope of the stress tensor with itself where we obtain that
+\[
+T(z)T(w) = \frac{c/2}{(z-w)^4} + \frac{2}{(z-w)^2}T(w) + \frac{1}{z-w} \partial T(w).
+\]
+The central charge is contained only in the term independent of $T(w)$, and no terms from the expansions of $T(z)$ in $w$ will contribute to it. So it is enough to compute the double Wick contractions like so 
+\begin{align*}
+T(z)T(w) 
+=&\  \lambda^2 {:} b\partial c{:}(z) {:} b\partial c{:}(w) 
+- \lambda(\lambda -1) {:}c\partial b{:}(z){:} b\partial c{:}(w)\\
+&- \lambda(\lambda -1) {:}b\partial c{:}(z){:} c\partial b{:}(w) 
++ (\lambda - 1)^2{:}c\partial b{:}(z){:}c\partial b{:}(w)\\
+% =& -\frac{\lambda^2}{(z-w)^4} + \frac{\lambda^2}{(z-w)^2}\left[ {:}\partial c(z) b(w){:} - {:}b(z)\partial c(w) {:}  \right]\\
+% &-\frac{2\lambda (\lambda - 1)}{(z-w)^4} - \frac{2\lambda (\lambda - 1)}{(z-w)^3}{:}c(z)b(w){:} + \frac{\lambda(\lambda - 1)}{z-w}{:}\partial b(z) \partial c(w){:}\\
+% &-\frac{2\lambda (\lambda - 1)}{(z-w)^4} - \frac{2\lambda (\lambda - 1)}{(z-w)^3}{:}b(z)c(w){:} + \frac{\lambda(\lambda - 1)}{z-w}{:}\partial c(z) \partial b(w){:}\\
+% &-\frac{(\lambda-1)^2}{(z-w)^4} + \frac{\lambda^2}{(z-w)^2}\left[ {:}\partial b(z) c(w){:} - {:}c(z)\partial b(w) {:}  \right]
+&= -\frac{\lambda^2}{(z-w)^4}-\frac{2\lambda (\lambda - 1)}{(z-w)^4}-\frac{2\lambda (\lambda - 1)}{(z-w)^4}-\frac{(\lambda-1)^2}{(z-w)^4} + \cdots\\
+&= \frac{-6\lambda (\lambda - 1) - 1}{(z-w)^4} + \cdots.
+\end{align*}
+As a result, we find that the central charge is
+\[
+\boxed{c = -12 \lambda (\lambda - 1) - 2.}
+\]
+\problem[3]
+For the first one we have that (suppressing the field indices)
+\begin{align*}
+\delta (\delta \phi) &= \delta \left( T_\alpha \phi c^\alpha \right) = T_\alpha \delta(\phi c^\alpha) = T_\alpha T_\beta \phi c^\beta c^\alpha + \frac{1}{2}f^{\alpha}_{\beta\gamma} T_\alpha \phi c^\beta c^\gamma\\
+&= T_\beta T_\alpha\phi c^{\beta} c^\alpha + [T_\alpha,T_\beta] \phi c^\beta c^\alpha +  \frac{1}{2}f^{\alpha}_{\beta\gamma} T_\alpha \phi c^\beta c^\gamma\\
+&= -T_\beta T_\alpha\phi c^{\alpha} c^\beta - f^{\gamma}_{\alpha \beta} T_\gamma \phi c^\alpha c^\beta +  \frac{1}{2}f^{\gamma}_{\alpha\beta} T_\gamma \phi c^\alpha c^\beta\\
+&= - \delta(\delta\phi) \implies \delta(\delta \phi) = 0.
+\end{align*} 
+For the ghost $c$ we can do a similar thing but we have to be careful to use the Leibniz rule for anti-commuting fields $\delta(c^\alpha c^\beta) = \delta c^\alpha c^\beta - c^\alpha \delta c^\beta$.
+\begin{align*}
+\delta(\delta c^\alpha) &= \frac{1}{2} f_{\beta \gamma}^\alpha \delta (c^\beta c^\gamma) = \frac{1}{2} f_{\beta \gamma}^\alpha f^{\beta}_{\delta \epsilon}c^\delta c^\epsilon c^\gamma - \frac{1}{2} f_{\beta \gamma}^\alpha f^{\gamma}_{\delta \epsilon} c^\beta c^\delta c^\epsilon = 0.
+\end{align*} 
+Where in the last step we noticed that we can re-sum $\delta^2 c^\alpha$ by changing $\beta \leftrightarrow \gamma$ labels on the second term and cyclically permuting $c^\delta c^\epsilon c^\gamma$ which remains invariant because cyclic permutations of three elements require two moves. 
+
+\problem[4]
+If we have $N$ Grassmann generators let's define $\hat \theta = \Pi_{I} \theta^I$ and $\hat \theta_I = \prod_{J\neq I} \theta^J$. Then any function of $\theta$ can be written as
+\[
+F(\theta) = \hat F \hat \theta + F^I \hat \theta_I +\cdots,
+\]
+for numbers $\hat F, F_I$, where the $\cdots$ contain therms with products of at most $N-2$ generators. We note then, that the Berezin integral is given by
+\[
+\int \prod_{I= 1}^N d\theta^I\, F(\theta) = \hat F.
+\]
+Under the transformation, $\theta'^{I} = \theta^I + \lambda f_{JK}^I\theta^J \theta^K$ we have that 
+\begin{align*}
+\prod_{I\neq M}\left(\theta^I -  \lambda f_{JK}^I\theta^J \theta^K\right) &= \hat \theta_M -2\lambda \sum_{I< M}f^{I}_{IM} (-1)^{M+I} \hat \theta  -2\lambda \sum_{I> M} f^{I}_{IM}(-1)^{M+I + 1} \hat \theta + \mathcal{O}(\lambda^2)\\
+&= \hat \theta_M - 2\lambda \sum_{I\neq M} s_M^I(-1)^{M+I}f^{I}_{IM} \hat\theta +\mathcal{O}(\lambda^2),
+\end{align*} 
+where $s^{M}_I = 1$ for $I<M$ and $s^{I}_M = -1$ for $I>M$. In this formula we have used the anti-symmetry of $f$ to get the factors of 2. Effectively when writing out $\hat \theta_M$ in terms of the generators we are replacing a $\theta^I$ with a $-\lambda f^{I}_{IM} \theta^I \theta^M$ (the other terms are either higher order, $\hat \theta$, or vanish) and then get the appropriate sign by moving $\theta^M$ from the $I+1^{\text{th}}$ spot to the $M^{\text{th}}$ spot. If the $M^{\text{th}}$ spot is to the left of the $I^{\text{th}}$ spot we get an extra negative sign which is why we had to split the sum into two. This sign is accounted for by $s_I^M$. 
+
+The interesting part is that when we evaluate $F$ in the new coordinates, the $F_M$ coefficients will pick up a $\hat \theta$ term appearing on the integral. Here we use this precisely
+\begin{align*}
+\int d\theta' F(\theta) &= \int d\theta F\left(\theta^I -  \lambda f_{JK}^I\theta^J \theta^K\right) \\
+&= \int d\theta \left[ \hat F  -2\lambda  F_M   \sum_{I=1}^N(-1)^{M+I}f^I_{IM} + \mathcal{O}(\lambda^2)\right] \hat \theta \\
+&= \int F(\theta) d\theta  - 2\lambda  F^M   \sum_{I=1}^N s^{I}_M(-1)^{M+I}f^I_{IM} + \mathcal{O}(\lambda^2).
+\end{align*} 
+Notice that we have used the fact that $f$ is antisymmetric to extend the sum over all $I$. Since the $F_M$ are independent from each other, we have that in order for the measure to be invariant under this transformation the following condition must be satisfied for all $M = 1\dots N$.
+\[
+\boxed{\sum_{I=1}^Ns^{I}_M(-1)^{I}f^I_{IM} = 0,}
+\]
+where we have factored out the $(-1)^M$ sign. 
+
+\end{document}

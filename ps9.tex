@@ -1,0 +1,104 @@
+\documentclass{homework}
+
+\title{Introduction to String Theory H9}
+\author{Panos Oikonomou}
+
+\begin{document}
+\maketitle
+\problem[1 (a)]
+After the orbifold projection we see that what multiplies $e^{-ir(\tau + \sigma)}$ is 
+\[
+\Omega b_r \Omega^{-1} = \pm b_r e^{\pm ir\pi} = b_r e^{\pm ir\pi +\frac{i\pi}{2}(1\mp 1)} = ib_r e^{i\pi \left(r-\frac{1}{2}\right)} = b_r e^{i\pi r}. 
+\]
+where the sign ambiguity is gone when we realize that $r-\frac{1}{2} \in \mathbb{Z}$ and $e^{\pm i \pi k} = e^{i\pi k}$ for all integers $k$.
+\problem*[1 (b)]
+The state $\ket{0}$ is annihilated by all the $b_r$ with positive modes. So we know that for $r>0$
+\[
+0 =\Omega b_r \ket{0} = \Omega b_r \Omega^{-1} \Omega\ket{0} = e^{i\pi r}b_r \Omega \ket{0},
+\]
+so $\Omega \ket{0} = e^{i\phi} \ket{0}$ for some $\phi \in \mathbb{R}$. A state $\Psi$ in the $NS$ sector satisfying GSO has to have odd fermion parity, which means it has to be created using an odd number $2k + 1$ of $b_{r}$ creation operators. Therefore,
+\[
+\Omega \Psi = e^{i \phi} \prod_{i=1}^{2k + 1} e^{i\pi r_i} \Psi = e^{i\phi + i\pi \sum_{i=0}^{2k + 1} r_i} \Psi,
+\]
+since the sum of an odd number of half integers is a half integer, $\phi$ must be either $\pm\frac{\pi}{2}$ for $\Omega \Psi = \pm \Psi$. Since $\Omega^2 = (-1)^F e^{i\theta}$ we can see that
+\[
+-e^{i\theta} \Psi  = \Omega^2 \Psi = (\pm1)^2\Psi %e^{2i\phi + 2\pi i \sum_{i=0}^{2k + 1} r_i} \Psi = \Psi,
+\]
+so $\theta = \pi$.%, where we have used the fact that $\sum_{i=0}^{2k + 1} r_i$ is a half integer, so twice that is odd and $2i\phi = \pm \pi$
+\problem*[2 (a)]
+The M\"obius contribution $\int_{\mathbb{R}^+} \frac{dt}{2t} Z_M(q)$ in the one loop partition function is the following component in the orientifold projection
+\[
+Z_M(q) = \frac{1}{2}\text{tr}_{\mathbb{H}} \Omega q^{L_0 - 1}, 
+\]
+where $\mathbb{H}$ is the Hilbert space of the open bosonic string with ends at the branes. Let's first deal with the zero modes which is the most finicky part of this calculation. That trace will require that we integrate over all the possible momenta. The momentum is unconstrained for the $25 - p + 1$ longitudinal directions, plus $\Omega$ acts trivially there, so the zero mode of $L_0$ is $\frac{1}{2} \alpha_0^2 = \alpha' k^2$ so the contribution will be
+\[
+V_{26-p}\int_{\mathbb{R}^{26-p}} q^{\alpha' k^2} \frac{dk}{(2\pi)^{26-p}}dk = V_{26-p}\int_{\mathbb{R}^{26-p}} e^{-2\pi \alpha' t k^2} dk  =  \frac{V_{26-p}}{(8\pi^2\alpha' t)^{13-\frac{p}{2}}}.
+\]
+For the transverse directions, however, the situation is more subtle. Having Dirichlet boundary conditions implies that the momentum is zero so we won't get another volume term from the path integral. However, we will get a nonzero $\alpha_0$ term since the classical, vacuum, solution to $\partial_\tau^2X^i - \partial_\sigma^2X^i = 0$ satisfying $X(\tau, 0)^i = x^i$ and $X(\tau, \pi)^i = -x^i$ is given by
+\[
+X^i(\tau,\sigma) = x^i  - \frac{2x^i}{\pi} \sigma.
+\]
+To see it, we can calculate $\alpha_0$ directly by expanding $X$ in modes around the classical solution above and realizing that the zero mode of $L_0$ corresponds to the remaining part, i.e. 
+\[
+\frac{1}{2}(\alpha_0^i)^2= \frac{1}{\alpha'}\int_{0}^\pi T_{\text{classical}}(\sigma)^i d\sigma =   \frac{1}{2\pi \alpha'} \int_{0}^{\pi} \left( \partial_\sigma X^i \right)^2 d\sigma = \frac{2(x^i)^2}{\pi^2 \alpha'},
+\]
+where we have used that the metric is diagonal for the $i$ coordinates. So for the transverse modes $\alpha_0$ simply multiplies everything by a constant. In the entire Hilbert space we see that $\frac{1}{2}\alpha_0^2 = \alpha'k^2 + \frac{2x^2}{\pi^2 \alpha'}$. As a result, we can finally calculate the oscillator part! We know that $\Omega \alpha_{-n}^\mu \Omega^{-1} = (-1)^n\alpha_{-n}^\mu$ for $\mu = p+1,\dots, 25$ and $\Omega \alpha_{-n}^i \Omega^{-1} = (-1)^{n+2}\alpha_{-n}^i$ for $i = 0,\cdots,p$. The extra minus sign in the transverse modes comes because that's where the orientifold lies and therefore under $\Omega$ $\alpha^i \mapsto -\alpha^i$ (I did this extra minus sign wrong initially and I was stuck getting the wrong propagator in part (b) for 2 days!)
+\begin{align*}
+\text{tr}_{\mathbb{H}} \Omega q^{L_0 - 1} 
+&= \frac{2V_{26-p} e^{-\frac{4tx^2}{\pi \alpha'}}}{(8\pi^2\alpha' t)^{13-\frac{p}{2}} q} \left(\prod_{n=1}^{\infty} \sum_{m = 0}^{\infty}  (-1)^{nm} q^{nm}\right)^{24}\\
+&=\frac{2V_{26-p} e^{-\frac{4tx^2}{\pi \alpha'}}}{(8\pi^2\alpha' t)^{13-\frac{p}{2}} q} \prod_{n=1}^{\infty} \left[1-(-q)^n\right]^{-24},
+\end{align*}
+The factor of two corresponds to the trace over the Chan-Paton factors that come from the string being able to end in two ways on the D-brane in the presence of the orientifold. In the calculation above I did it in the lightcone gauge by fixing longitudinal coordinates. Inspired by the hint we can write out this product in terms of even and odds like so
+\begin{align*}
+\text{tr}_{\mathbb{H}} \Omega q^{L_0 - 1} 
+&=\frac{V_{26-p} e^{-\frac{4tx^2}{\pi \alpha'}}}{(8\pi^2\alpha' t)^{13-\frac{p}{2}} q} \prod_{n=1}^{\infty} \left[(1-q^{2n})(1+q^{2n-1})\right]^{-24} = \frac{V_{26-p} e^{-\frac{4tx^2}{\pi \alpha'}}}{(8\pi^2\alpha' t)^{13-\frac{p}{2}}} \eta(2it)^{-12} \theta_{00}(2it)^{-12}.
+\end{align*} 
+% We notice that the numerator is $[q^{-\frac{1}{12}} \eta(2it) \theta_{00}(2it)]^{\frac{p}{2}-12}$, while for the denominator we notice that
+% \begin{align*}
+% \prod_{n=1}^{\infty} (1 +q^{2n})(1 - q^{2n - 1}) 
+% &= \prod_{n=1}^{\infty} \frac{1-q^{4n}}{1-q^{2n}}\frac{1-q^{4n-2}}{1+q^{2n-1}} = \frac{q^{-\frac{1}{12}} \eta(2it)}{\sqrt{q^{-\frac{1}{12}} \eta(2it) \theta_{00}(2it)}} = \sqrt{\frac{q^{-\frac{1}{12}} \eta(2it)}{ \theta_{00}(2it)}}. 
+% \end{align*}
+Therefore, we finally conclude that
+\begin{align*}
+\boxed{Z_M = \int_{0}^{\infty}\frac{dt}{4t}\text{tr}_{\mathbb{H}}\Omega q^{L_0 -1 } = \int_{0}^{\infty}\frac{dt}{2t}\frac{V_{26-p} e^{-\frac{4tx^2}{\pi \alpha'}}}{(8\pi^2\alpha' t)^{13-\frac{p}{2}}} \theta_{00}(2it)^{-12} \eta(2it)^{-12}.}
+\end{align*}
+\problem*[2 (b)]
+We can attempt to expand the $\theta$ and $\eta$ for small $t$ since this is roughly where the integrand is singular to get rid of the contribution of the tachyon. We know that for large $t$
+\begin{align*}
+\eta(2it)^{-12}\theta_{00}(2it)^{-12}
+&= q^{-1}\prod_{n=1}^{\infty}(1 - q^{2n})^{-24}(1 + q^{2n - 1})^{-24}\\
+&= q^{-1}[1 - 24 q +\mathcal{O}(q^2)] \prod_{n=2}^{\infty}(1 - q^{2n})^{-24}(1 + q^{2n + 1})^{-24}\\&
+= q^{-1} - 24 + \mathcal{O}(q)
+\end{align*} 
+By modularity and our previous result we can find that for small $t$
+\begin{align*}
+\eta(2it)^{-12}\theta_{00}(2it)^{-12} = (2t)^{12} \eta\left( \frac{i}{2t} \right)^{-12}\theta_{00}\left( \frac{i}{2t} \right)^{-12} \to (2t)^{12} [e^{\frac{\pi}{2t}} -24],
+\end{align*}
+% so now we can rewrite our integrand by ignoring the tachyonic contribution of $e^{\pi/t}$ like so
+% \[
+% Z_M = V_{26-p}\frac{12 - p}{(8\pi^2\alpha')^{13 - \frac{p}{2}}}\int_{0}^{\infty}\frac{dt}{4t^2}e^{-\frac{4tx^2}{\pi \alpha'}} + \cdots, 
+% \]
+% If we interpret this in the closed channel we would have to do the integration from 
+allowing us to rewrite the amplitude by dropping the diverging tachyon term as
+\[
+Z_M = -2^{12}\frac{24V_{26 -p}}{(8\pi^2\alpha')^{13-\frac{p}{2}}} \int_{0}^{\infty}\frac{dt}{2t} t^{\frac{p}{2} - 1} e^{-\frac{4tx^2}{\pi \alpha'}} + \cdots = -2^{13 - p}\frac{24(2)V_{26 -p}}{(8\pi^2\alpha')^{13-\frac{p}{2}}} \int_{0}^{\infty}\frac{dt}{2t} t^{\frac{p}{2} - 1} e^{-\frac{tx^2}{\pi \alpha'}} + \cdots,
+\]
+where in the second step we have used the coordinate transformation $t \mapsto 2t$ to get the right hand side to look like the boson propagator with a distance $x$.  Without doing the calculation explicitly we expect to see that $Z_M = c_pT_{Op} T_{25-p} V_{26-p} G(x)$, where $T_{Op}$ is the tension of the orientifold, $T_{25-p}$ is the tension of the brane, $G(x)$ is the propagator of a free boson, and $c$ is normalization factor from the action. 
+Similarly we could repeat the calculation for the cylinder one loop amplitude for two D branes and after isolating the zero mode and going to the closed channel we would obtain $Z_C = c_pT_{25-p}^2 V_{26-p} G(x)$, where $G$ would be the same propagator of a massless boson. Using the expression in the hint for the cylinder, we can actually evaluate the ratio to be
+\[
+\boxed{\frac{T_{Op}}{T_{25-p}} = -2^{13 - p}.}
+\]
+% We can now identify the propagator of a free boson where the distance $y^2 = 2x^2$. The integral is this gamma function
+% Now consider the modular transformation $s = 1/4t$ then can rewrite the integral using the modular properties of $\eta,\theta_{00}$ as 
+% \begin{align*}
+% Z_M &= 2^{13-\frac{p}{2}}\frac{V_{26 -p}}{(8\pi^2\alpha')^{13-\frac{p}{2}}}\int_{0}^{\infty} ds\, e^{-\frac{x^2}{\pi \alpha' s}}\theta_{00}(2is)^{p-12} \eta(2is)^{-12}\\
+% &= 2^{13-\frac{p}{2}}(24-2p)\frac{V_{26 -p}}{(8\pi^2\alpha')^{13-\frac{p}{2}}} \int_{0}^{\infty} ds\, e^{-\frac{x^2}{\pi \alpha' s}}+ \cdots.
+% \end{align*}
+% In the closed channel we can interpret this calculation by having massless closed strings exchanged between The $D_{25-p}$ brane and the orientifold. Without doing the calculation explicitly we expect to see that $Z_M = c_pT_{Op} T_{25-p} V_{26-p} G(x)$, where $T_{Op}$ is the tension of the orientifold, $T_{25-p}$ is the tension of the brane, $G(x)$ is the propagator of a free boson, and $c_p$ is some dimension dependent normalization factor from the action. 
+
+% Similarly we could repeat the calculation for the cylinder one loop amplitude for two branes separated by $2x^i$ and after isolating the zero mode and going to the closed channel we would obtain $Z_C = c_pT_{25-p}^2 V_{26-p} G(x)$, where $G$ would be the same propagator of a massless boson. Using the expression in the hint for the cylinder, we can actually evaluate the ratio to be
+% \[
+% \frac{T_{Op}}{T_{25-p}} = 2^{12 - \frac{p}{2}} \left(1 - \frac{p}{12}\right),
+% \]
+% where we have used that the prefactor in the other case is $\frac{48V_{26- p}}{(8\pi^2 \alpha')^{13-\frac{p}{2}}}$.
+\end{document}

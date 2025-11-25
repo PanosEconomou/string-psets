@@ -1,0 +1,82 @@
+\documentclass{homework}
+
+\title{Introduction to String Theory H8}
+\author{Panos Oikonomou}
+
+\begin{document}
+
+\maketitle
+
+\problem[1]
+We express the conditions into ones for the $a_n$. Since
+\[
+X^\mu(\sigma,\tau) = x^\mu +2\alpha' p^\mu \tau + \sqrt{-2\alpha'}\sum_{n\neq 0} \frac{1}{n}\left( \alpha_{n}^\mu e^{2\pi i n (\sigma - \tau)} + \bar \alpha_{n}^\mu e^{-2\pi n (\sigma + \tau)} \right),
+\]
+we can derive a bunch of conditions relating how the operators $\alpha_k,\bar \alpha_k$ act on the state $\ket{D_p}$. In particular we see that for $k\neq 0$ we can integrate $X^I(\sigma,0) \ket{D_p} = a^I \ket{D_p}$ to obtain 
+\begin{align*}
+0 = \int_{0}^\pi d\sigma\, e^{2ki\sigma} X^I(\sigma,0) \ket{D_p} \propto \left(\bar \alpha_{k}^I - \alpha_{-k}^I\right) \ket{D_p} \implies x^I \ket{D_p} = a^I \ket{D_p},
+\end{align*} 
+and we can integrate $\partial_\tau X^\mu(\sigma,0) \ket{D_p} = 0$ to obtain
+\begin{align*}
+0 = \int_{0}^\pi d\sigma\, e^{2ki\sigma} \partial_\tau X^\mu(\sigma,0) \ket{D_p} \propto \left(\bar \alpha_{k}^\mu + \alpha_{-k}^\mu\right) \ket{D_p} \implies p^\mu \ket{D_p} = 0.
+\end{align*} 
+To solve this system let's focus on two oscillators at a time at level $k \neq 0$ for some $\mu$ (which we choose to be less than $p+1$ though the following argument applies to the rest by flipping a minus sign) we can call the corresponding operators $\alpha, \bar\alpha, \alpha^\dagger, \bar\alpha^\dagger$. Then the only nontrivial equations in that sector are
+\begin{align*}
+(\bar \alpha^\dagger + \alpha)\ket{\psi} =  (\bar \alpha + \alpha^\dagger) \ket{\psi} = 0,
+\end{align*} 
+then we can write the state $\ket{Dp}$ by taking tensor products across the different sectors. We can write the state $\ket{\psi} = f \ket{0}$ for some combination of creation and annihilation operators $f$. Then the two equations look like
+\begin{align*}
+[\bar \alpha^\dagger + \alpha, f] \ket{0}= - f\bar \alpha^\dagger \ket{0} && [\bar \alpha + \alpha^\dagger, f] \ket{0}= - f \alpha^\dagger \ket{0},
+\end{align*} 
+Assume that a combination of creation and annihilation operators $X$ satisfies $[\bar \alpha^\dagger+\alpha,X] = \bar\alpha^\dagger$ and $[\bar \alpha+\alpha^\dagger,X] = \alpha^\dagger$ as well as $[\alpha^\dagger, X] = [\bar \alpha^\dagger, X] = 0$, then we notice that $f(X) = e^{-X}$ is a solution of the system above since $[\bar \alpha + \alpha^\dagger, f(X)] = f'(X)[\bar\alpha + \alpha^\dagger, X] = f'(X) \alpha^\dagger \implies f(X) = f'(X)$. One such $X$ is given by 
+\[
+X = \frac{\alpha^\dagger\bar\alpha^\dagger }{k}, \ \text{ since } [\alpha,\alpha^\dagger] = k.
+\]
+This is awesome! Now we can take tensor products over all $k>1$ and find the oscillator part (is this terminology right?) of the solution. Yet we still need to solve for the 0-mode. This is an eigenstate of position for $x^I$ with eigenvalues $a^I$ and a $0$ momentum eigenstate for $p^\mu$. This eigenstate is given by $\delta^{(p)}(x^I-a^I) \ket{0}$ so we finally have
+\[
+\boxed{\ket{D_p} = A \delta^{(p)}(x^I - a^I)  \prod_{k = 1}^{\infty}  \exp \left[ -\frac{1}{k}\sum_{\mu = 0}^p\alpha_{-k}^\mu \bar \alpha_{-k}^\mu + \frac{1}{k}\sum_{I = p+1}^d \alpha_{-k}^I \bar \alpha_{-k}^I \right] \ket{0}.}
+\]
+\problem*[2]
+We can write the spinor $\lambda = \slashed P \Gamma^0 Q \ket{p}$, and we can notice that given a symmetric matrix  $M$ with components that commute with $Q_\alpha$ then 
+\[
+Q^TMQ = M_{\alpha\beta} Q_{\alpha}Q_\beta = M_{\alpha\beta}(\Gamma^0\slashed P)_{\alpha\beta} - M_{\alpha \beta}Q_\beta Q_\alpha \implies Q^TMQ = \frac{1}{2} \tr M \Gamma^0 \slashed P.
+\]
+To calculate $\lambda^\dagger \lambda$ we see that
+\begin{align*}
+\lambda^\dagger \lambda = \bra{p} Q^\dagger \Gamma^{0\dagger} \slashed P^\dagger \slashed P \Gamma^0 Q \ket{p} = \bra{p} Q^T B \Gamma^{0\dagger} \slashed P^\dagger \slashed P \Gamma^0 Q \ket{p},
+\end{align*} 
+where we used that for a Majorana spinor $Q^\dagger = Q^TB$. The matrix $M=B \Gamma^{0\dagger} \slashed P^\dagger \slashed P \Gamma^0$ is indeed symmetric since 
+\[
+M^T = BB^{-1}\Gamma^{0T}BB^{-1} \slashed P^T BB^{-1}\slashed P^\ast BB^{-1}\Gamma^{0\ast} B = M Q^{-1}Q^T
+\]
+Finally, $\tr M\Gamma^0 \slashed P = A P^2$ for some operator $A$, implies that $\lambda^\dagger \lambda \propto \bra{p} AP^2\ket{p} = 0$
+\problem*[3 (a)]
+% We notice that the anticommutation relations of the supercharges can be wrttien (by contracting with $\Gamma^{11}$ from either side and assuming $\{Q_\alpha, \tilde Q_\beta\} = 0$) as
+% \[
+% \{Q_\alpha, Q_\beta\} = \{\tilde Q_\alpha, \tilde Q_\beta\} = (\Gamma^0\slashed P)_{\alpha,\beta} + (\Gamma^0\Gamma^{11})_{\alpha,\beta} Z = (QQ^T)_{\alpha\beta} = (\tilde Q\tilde Q^T)_{\alpha\beta} . 
+% \]
+% Then we can define $R = \eta Q + \xi \tilde Q$ which is also a spinor that satisfies
+% \[
+% RR^T = (\eta Q + \xi \tilde Q)(Q^T \eta^T + \tilde Q^T \xi^T) = \eta QQ^T\eta^T\ket{D0} + \xi \tilde Q\tilde Q^T \xi^T\ket{D0} 
+% \]
+In the notation we had before, without using the $\xi,\eta$ we can do
+\[
+(Q + \tilde Q) (Q + \tilde Q)^T \ket{D0} = \{(Q + \tilde Q),(Q + \tilde Q)^T\} \ket{D0} = \left( 2\Gamma^0 \slashed P + 2\Gamma^0 \Gamma^{11} Z \right) \ket{D0} = 0,
+\]
+which implies
+\[
+\slashed P \ket{D0} = -\Gamma^{11}Z \ket{D0} \implies -m^2 \ket{D0} = P^2 \ket{D 0} = -\slashed P \Gamma^{11} Z \ket{D0} =  \Gamma^{11}Z \slashed P \ket{D0} = -Z^2 \ket{D0}, 
+\]
+so the central charge is the mass of the $D0$ brane. However when we introduce $\xi, \eta$ we need to know more relations among them to conclude. In particular I think that we should have something like $\eta\eta^T + \xi\xi^T= 1$. If this is the case, the previous argument holds. 
+\problem*[3 (b)]
+We can get to any of these states by taking operators $\hat S$ built using $S_\alpha$ and doing $\hat S\ket{D0}$ but since $[P^M,Q_\alpha] = [P^M,\tilde Q_\alpha] = 0 \implies [P^M,\hat S] = 0$ then $P^2 \hat S\ket{D0} = \hat SP^2 \ket{D0} = -m^2 \hat S\ket{D0}$.
+\problem*[3 (c)] 
+We start with 32 supercharges 16 of which vanish by the problem. Since $\{S_\beta, \eta^\alpha_aQ_\alpha + \xi^\alpha_a\tilde Q_\alpha\} = 0$ we have 16 supercharges left that we can use to build creation and annihilation operators, which will yield 8 fermionic creation operators. We can then build a basis for the corresponding Foch space by either acting or not acting with each of the 8 creation operators.
+Therefore the dimension of the representation is $2^8$ and since the bosonic and fermionic degrees of freedom must be the same, each has $2^7$ states.
+\problem*[3 (d)]
+The creation and annihilation operators are messy to write down in terms of $R$ especially with $\eta,\xi$, but assuming we have them, we would then have $4$ creation operators available for this representation, which would be given by taking even products of the $8$ available ones. Each contributes up to a maximum of spin $1/2$ to the corresponding state. 
+
+Therefore, we must have a spin $2$ representation which for $SO(9)$ has dimension $44$. For the same reason we should have at least one spin $1$ which should come from the 3-form which has 3 antisymmetric indices with $\binom{9}{3} = 84$ degrees of freedom. That's all of our degrees of freedom. 
+\problem*[3 (e)]
+Similarly we can construct a state using 3 creation operators that has spin $3/2$. Turns out the irreducible representation of $SO(9)$ with spin $3/2$ has dimension $128$ exactly, so there can't be anything else.
+\end{document}

@@ -1,0 +1,130 @@
+\documentclass{homework}
+
+\title{Introduction to String Theory H5}
+\author{Panos Oikonomou}
+
+\begin{document}
+
+\maketitle
+
+\problem[1]
+If $g$ is the metric on a sphere, a conformal killing vector field $X$ is defined by $\mathcal{L}_X g = \omega g$ for some real function $\omega$. Therefore for any smooth real function $f$
+\[
+\mathcal{L}_X f g = (Xf + \omega) g,
+\]
+showing that conformal vector fields are invariant under conformal transformations. It is enough to work out the conformal killing vector fields on the sphere with the metric $g = dz d\bar z$ in which we obtain that for $X = \xi \partial+ \bar \xi \bar \partial$
+\[
+\mathcal{L}_X dzd\bar z = d\xi d\bar z + dz d\bar \xi = (\partial \xi  + \bar \partial \bar \xi) dzd\bar z + \partial \bar \xi d z dz + \bar \partial \xi d\bar z d\bar z \implies \partial \bar \xi = \bar \partial \xi = 0.
+\]
+Let's focus on the holomorphic case. Holomorphic functions are such that they have Laurent expansions, so a basis would be the powers $z^n$ for $n \in \mathbb{Z}$. Consider $X = z^n\partial$ in the chart $(S^2\setminus\{\infty\},(z,\bar z))$ and the chart $(S^2 \setminus\{0\}, (w, \bar w))$ where $0,\infty$ are the poles, and $w = -\frac{1}{z}$ in the overlap. Then, in the other chart we have that $X = z^n \partial_z = w^{2-n} \partial_w$. So in order to be globally defined $n\in \{0,1,2\}$. So in the more standard notation of Witt generators, the global conformal killing vectors are:
+\[
+\boxed{l_n \coloneqq z^{n+1} \partial \hspace{0.8cm} \bar l_n \coloneqq \bar z^{n+1} \bar \partial \hspace{0.8cm} n \in \{-1,0,1\}.}
+\]
+\problem*[2]
+We can see that the amplitude is a product of ratios of the form
+\[
+\frac{\Gamma(-1-x)}{\Gamma(2+x)} = \frac{\Gamma(1-(2+x))}{\Gamma(2+x)} = \frac{\pi}{\sin\pi x} \frac{1}{\Gamma(2+x)^2} = \frac{\sin\pi x}{\pi} \Gamma(-1-x)^2,
+\]
+these identities were derived using the reflection formula $\Gamma(x)\Gamma(1-x) \sin \pi x = \pi$. What we have effectively done, is found ways to factor the oscillating behavior (which happens for negative $x$) of each term out and enter the region where the Hint's approximation is valid. Therefore, setting $u = -32 -s-t$ we have that (I multiplied everything by $8$ to simplify notation)
+\[
+A(8u,8s,8t) = -\frac{ \sin \pi(s+t)}{\sin\pi s} \left[\frac{\Gamma(3 + s+t)}{\Gamma(2+s)}\right]^2 \frac{\Gamma(-1-t)}{\Gamma(2+t)},
+\]
+To obtain this, whichever form of the identity we derived above that yields a positive argument for $\Gamma$ since the hint's approximation is only valid for such. Plugging in the hint we get
+\[
+A(8u,8s,8t) \approx - \frac{\sin \pi(s+t)}{\sin\pi s} \frac{(3+s+t)^{5+2s+2t}}{(2+s)^{3+2s} e^{2+2t}} \frac{\Gamma(-1-t)}{\Gamma(2+t)}.
+\]
+Let's asymptotically expand $\frac{(3+s+t)^{5+2s+2t}}{(2+s)^{3+2s}}$ by using $\log(a+bx) = \log(bx) + a/bx + \mathcal{O}(x^{-2})$ to obtain
+\begin{align*}
+\log \frac{(3+s+t)^{5+2s+2t}}{(2+s)^{3+2s}} 
+&= (5+2s+2t)\left[\log s + \frac{3+t}{s} + \mathcal{O}(s^{-2})\right] - (3+2s) \left[ \log s + \frac{2}{s} + \mathcal{O}(s^{-2})\right]\\
+&= (2 + 2t) (\log s + 1) + \mathcal{O}(s^{-1}).
+\end{align*}
+Plugging this back in we obtain
+\[
+\boxed{A(8u,8s,8t) \approx - s^{2t + 2} \frac{\sin \pi(s+t)}{\sin\pi s}  \frac{\Gamma(-1-t)}{\Gamma(2+t)}.}
+\]
+\problem*[3]
+Say that $t=\alpha s$ for some $\alpha \in \mathbb{R}$. Then we have that $u = -32 - (1 + \alpha)s$. Here we have to consider two cases for expressing our amplitude in terms of $\Gamma(x)$ for $x>0$. If $\alpha > 0$ then for large enough $s$ we have that $u<0$ and $t>0$. In this case, to approximate we should use
+\[
+A(8u,8s,8t) = -\frac{\pi \sin [\pi s(1+\alpha)]}{\sin\pi s \sin \pi \alpha s} \left[\frac{\Gamma(3 + (1+\alpha) s)}{\Gamma(2+s)\Gamma(2+\alpha s)}\right]^2.
+\]
+Doing exactly the same steps of plugging in the approximation and then expanding in $s$ we obtain
+\[
+A(8u,8s,8t) \approx -\frac{e^2}{2\pi} \frac{[3+(1+\alpha)s]^{5 + 2(1+\alpha) s}}{(2+s)^{3+2s} (2+\alpha s)^{3+2\alpha s}} \frac{\pi \sin [\pi s(1+\alpha)]}{\sin\pi s \sin \pi \alpha s}.
+\]
+Let's do the same thing that we did in the previous problem and approximate the coefficient in front for large $s$. We have that
+\begin{align*}
+\log \frac{[3+(1+\alpha)s]^{5 + 2(1+\alpha) s}}{(2+s)^{3+2s} (2+\alpha s)^{3+2\alpha s}} 
+&= \left[5+2(1+\alpha)s\right] \left[ \log (\alpha+1)s + \frac{3}{(\alpha +1)s} + \mathcal{O}(s^{-2})\right] \\
+&\ \ - (3+2s)\left[ \log s + \frac{2}{s} + \mathcal{O}(s^{-2})\right] - (3+2\alpha s) \left[ \log as + \frac{2}{\alpha s} + \mathcal{O}(s^{-2}) \right]\\
+&= - \log s + \log \frac{(\alpha +1)^{5 + 2s(\alpha+1)}}{\alpha^{3 + 2s\alpha}} -2 + \mathcal{O}(s^{-1}).
+\end{align*} 
+Putting everything together we have that
+\[
+\boxed{A(8u,8s,8t) \approx - s^{-1}\left[\frac{(\alpha + 1)^{\alpha + 1}}{\alpha^\alpha}\right]^{2s} \frac{(\alpha+1)^5}{\alpha^3}\frac{ \sin [\pi s(\alpha+1)]}{2\sin\pi s \sin \pi \alpha s}\ \text{ for } \alpha>0.}
+\]
+Now we need to consider the different limits. When $-1 <\alpha < 0$ we are in the regime where $u<0, t<0, s>0$. In this regime an appropriate way to write the amplitude such that all the gamma functions have positive arguments is
+\[
+A(8u,8s,8t) = - \frac{\sin[\pi s(1+\alpha)] \sin \pi \alpha s }{\pi \sin \pi s} \left[ \frac{\Gamma(3 + (1+\alpha) s) \Gamma(-1 -\alpha s)}{\Gamma(2+s)}\right]^2,
+\]
+Doing the calculation in exactly the same way as above, we obtain that
+\[
+\boxed{A(8u,8s,8t) \approx  s^{-1}\left[\frac{(\alpha + 1)^{\alpha + 1}}{(-\alpha)^\alpha}\right]^{2s} \frac{(\alpha+1)^5}{\alpha^3}\frac{2\sin[\pi s(1+\alpha)] \sin \pi \alpha s }{ \sin \pi s} \text{ for } -1<\alpha<0.}
+\]
+Finally we repeat this for the limit where $a<-1$ where $u>0, t<0, s>0$ in which case we have to rearrange such that the final result, after repeating this calculation is
+\[
+\boxed{A(8u,8s,8t) \approx   -s^{-1}\left[\frac{(-\alpha - 1)^{\alpha + 1}}{(-\alpha)^\alpha}\right]^{2s} \frac{(\alpha+1)^5}{\alpha^3}\frac{\sin \pi \alpha s }{ 2\sin \pi s \sin[\pi s(1+\alpha)] } \text{ for } \alpha<-1.}
+\]
+\problem*[4]
+We are obtaining this torus by taking the integer lattice in $\mathbb{R}^2$ with coordinates $x,y$, i.e. $\Lambda = \{(m,n) \in \mathbb{R}^2 \mid m,n \in \mathbb{Z}\}$, and identifying points mod $\Lambda$. We consider the matrix on $\mathbb{R}^2$
+\[
+f = \begin{pmatrix}
+A & B \\ C& D
+\end{pmatrix}.
+\]
+If we are to obtain a torus under $f$ there should be some coordinates $z' = x + \tau' y$ such that our torus has a metric $dz'd\bar z'$. Consider,
+\[
+f(z) = f(x) + \tau f(y) = (A+C\tau) x + (B+D\tau) y,
+\]
+therefore
+\begin{align*}
+df(z) df(\bar z) = (A+C\tau) (A+C\bar \tau) \left( dx + \frac{B+D\tau}{A+C\tau} dy\right) \left( dx + \frac{B+D\bar \tau}{A+C\bar \tau} dy\right),
+\end{align*} 
+which is just a Weyl rescaling away from the form we are looking for. Therefore we find that
+\[
+z' = x+\tau' y \text{ where }\boxed{\tau' = \frac{B+D\tau}{A+C\tau}.}
+\]
+For $f$ to lead to another torus, it must keep the lattice $\Lambda$ invariant. Therefore, it is necessary that $f(m,n) = (Am + Bn,Cm+Dn)$ must have integer components for every $m,n \in \mathbb{Z}$ which implies that $A,B,C,D \in \mathbb{Z}$.
+
+Now, consider a square formed by adjacent points on $\Lambda$. Under the linear map $f$ it will be mapped into a parallelogram. If $f$ is not invertible, there will be some square whose image under $f$ will contain (possibly unmapped) points on the lattice. Any parallelogram on the lattice that contains at least one point other than its corners has area more than 1 (we can tile it with area 1 parallelograms). Therefore we want the area of the parallelograms to be preserved, which implies that $\text{det\,}f = \pm 1$. Yet, if $\text{det\,}f=-1$, the new modulus will point on the lower half plane, which we don't allow by convention. Finally, we see that $-f$ also gives the same new modulus, so the transformations $1$ and $-1$ both define the identity diffemorphism. With all that we have that
+\begin{align*}
+f \in \text{GL}(2,\mathbb{Z}) && \det f = 1 && f\sim -f \implies f \in \text{PSL}(2,\mathbb{Z}),
+\end{align*} 
+or in other words $A,B,C,D$ are integers up to an overall sign such that $AD-BC = 1$.
+\problem*[5]
+After the transformation of the modulus $\tau \mapsto \tau+\mu$, there must be a coordinate $w = x+(\tau+\mu) y$ such that the metric of the torus is (up to an overall Weyl rescaling) $dwd\bar w$. We can express this in our original coordinates $z= x+\tau y$ by
+\[
+w = z + \mu y = z + \mu \frac{z - \bar z}{\tau - \bar \tau}.
+\]
+By taking the pullback under this map we can calculate the metric of the transformed torus in terms of $z$ by
+\begin{align*}
+dwd\bar w
+&= dz d\bar z + \frac{\mu - \bar \mu}{\tau - \bar \tau} dzd\bar z + \frac{\bar \mu}{\tau -\bar \tau} dzdz - \frac{\mu}{\tau -\bar \tau} d\bar zd\bar z + \mathcal{O}(|\mu|^2).
+\end{align*}
+This is a Weyl rescaling by $(\tau - \bar\tau)/(\tau - \bar \tau + \mu - \bar \mu)$ from the form in the hint, but this won't affect the answer, since corrections to $A$ and $\bar A$ are going to be second order in $\mu$. From this we have
+\[
+A = \frac{\bar \mu}{\tau - \bar \tau} \implies \partial_{\bar \tau} \hat g_{zz} = \partial_{\bar \mu} A = \frac{1}{\tau-\bar \tau}.
+\]
+The anti-ghost $b^{zz}(z)$ can be expressed in modes on the torus. We have two cycles, i.e. $b(z + \tau) = b(z)$ and $b(z+1) = b(z)$, so we can write the modes as
+\[
+b^{zz}(z,\bar z) = \sum_{n,m \in \mathbb{Z}} b_{nm} e^{2\pi i(n x+ my)}.
+\]
+Finally, we need to play around with the measure of integration
+\[
+dz^2 = d\text{Re\,}z\wedge d\text{Im\,} z = \frac{1}{4i}\left( d(z+\bar z) \wedge d(z-\bar z) \right) = \frac{i}{2} dz\wedge d\bar z = \frac{\tau -\bar \tau}{2i}dx\wedge dy.
+\]
+Finally putting everything together we have
+\[
+\int_{T} d^2z b^{zz}\partial_{\bar \tau} \hat g_{zz} = \frac{1}{2i}\frac{\tau-\bar \tau}{\tau -\bar \tau} \sum_{n,m \in \mathbb{Z}} b_{nm}\int_{I^2} e^{2\pi i(nx + my)}dxdy = \frac{b_{00}}{2i}.
+\]
+\end{document}
