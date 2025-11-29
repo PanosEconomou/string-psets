@@ -54,9 +54,17 @@ A representation of $SU(2)$ satisfies $[J^i,J^j] = 2\varepsilon_{ijk}J^k$, using
 	3C\varepsilon_{nij}[X^i, X^j] = \frac{4M_S}{g_S} 8J^n = - \frac{4 M_S}{g_S} [X^i,[X^i,X^n]].
 \end{equation*}
 \problem*[4]
-The kinetic term of a free complex boson is given by $d \bar \phi \wedge \ast d\phi$ so in this case,we can introduce the function $f(\sigma) = e^{i\frac{\theta \sigma}{pi}}$ to undo the twisted boundary conditions by defininng
+The kinetic term of a free complex boson is given by $d \bar \phi \wedge \ast d\phi$ so in this case,we can introduce the function the free field $\psi$ defined as follows to undo the twisted boundary conditions 
 \begin{equation*}
-    \phi = f \psi \implies \psi(\sigma +\pi) = \psi(\sigma).
+	\phi(\sigma) = e^{\frac{i \theta \sigma}{\pi}} \psi(\sigma) \implies \psi(\sigma +\pi) = \psi(\sigma).
 \end{equation*}
-Not only that, but the Lagrangian now looks like $d_{A} \bar \psi \wedge \ast d_{A} \psi$ where $d_A = d + \frac{i\theta}{\pi} d\sigma$ which is an exterior covariant derivative with connection $A= \frac{i\theta}{\pi}d\sigma$. Therefore our momentum operator will be of the form $p_{\theta} = p + \frac{\theta}{\pi}$. 
+Not only that, but the Lagrangian now looks like $d_{A} \bar \psi \wedge \ast d_{A} \psi$ where $d_A = d + \frac{i\theta}{\pi} d\sigma$ which is an exterior covariant derivative with connection $A= \frac{i\theta}{\pi}d\sigma$, therefore the momentum operator will be given by $p_{\theta} = p_0 + \frac{\theta}{\pi}$. Similarly we can argue for the rest of the oscillators which should contain Now we are ready to calculate the twisted Hamiltonian the same way as for an untwisted boson but with this new momentum.
+\begin{equation*}
+	H(\theta) = L_0(\theta) + \bar L_0(\theta) + E(0) = \alpha_0(\theta)^2 + E(0) + = \alpha' p_\theta^2 + E(0) + \text{osc},
+\end{equation*}
+where $E(0)$ is the vacuum energy at $\theta = 0$ which is obtained by the Scwartzian derivative of the stress tensor, and $\text{osc}$ is a term that contains number operators for oscillators which will vanish anyway since the ground state for the free boson satisfies $\alpha_n \omega = 0$ for $n\geq0$. Using the same state but in the presence of $A$ we find that $p_{\theta}^2 \omega = \frac{\theta^2}{\pi^2} \omega$. As a result we find
+\begin{equation*}
+	E(\theta) - E(0) = \frac{\alpha' \theta^2}{\pi^2}.
+\end{equation*}
+For the fermion the process is the same, however 
 \end{document}
