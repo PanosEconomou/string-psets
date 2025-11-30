@@ -58,42 +58,29 @@ We wrote the free boson in an expansion in terms of $e^{-2in(\tau \pm \sigma)}$ 
 \begin{align*}
 	[\alpha_{k}^{\pm},\alpha_{l}^{\pm}] =[\beta_{k}^{\pm},\beta_{l}^{\pm}]=  \left(k \mp \frac{\theta}{2\pi}\right) \delta_{k+l} 
 \end{align*}
+Since for $\theta \neq 0 \mod 2\pi$ it is not possible for the zero mode (i.e.\ the one proportional to $(\tau - \sigma)$) to yield the twist for $\sigma \mapsto \sigma + \pi$ we will set $\alpha_0 = 0$ (anyway even for the vacuum of the untwisted sector this still holds so it won't affect the calculation).
 Therefore the Hamiltonian is given by
 \begin{equation*}
-	H = E(0) + \sum_{s=\pm 1}\sum_{k \in \mathbb{Z}} \alpha_{-k}^{s}\alpha_{k}^{s} + \beta_{-k}^{s}\beta_{k}^{s} 
+	H = \sum_{s=\pm 1}\sum_{k \in \mathbb{Z}} \alpha_{-k}^{s}\alpha_{k}^{s} + \beta_{-k}^{s}\beta_{k}^{s} 
 \end{equation*}
-where $E(0)$ is a term that comes from the Schwartzian derivative and is the only nonvanishing part in the vacuum energy calculation when $\theta =0$ (since the oscillators annihilate the highest weight state). Let's apply this to the vacuum $v$ to obtain 
+The vacuum $v$ is the state with highest weight, therefore it is the one such that $\alpha_{k} v = 0$ for $k\geq 0$ (remembering that $k=0$ only exists for $\theta = 0$). Applying the Hamiltonian to the vacuum we obtain
 \begin{align*}
-	[H-E(0)] v = 
+	Hv &= \sum_{s=\pm 1} \sum_{k<0} \left[\alpha_{-k}^s\alpha_{k}^s + \beta_{-k}^s\beta_{k}^s\right]v
+	= \sum_{s=\pm 1} \sum_{k>0}2\left( k - \frac{s\theta}{2\pi} \right) v.
 \end{align*}
-% We can introduce the free field $\psi$ defined as follows to undo the twisted boundary conditions 
-% \begin{equation*}
-% 	\phi(\sigma) = e^{\frac{i \theta \sigma}{\pi}} \psi(\sigma) \implies \psi(\sigma +\pi) = \psi(\sigma).
-% \end{equation*}
-% Now $\psi$ looks like a free boson in the presence of a gauge field $A = \frac{i\theta}{\pi} d\sigma$. Notice that we can do a coordinate transformation $\psi = \chi + i\rho$ and write the complex boson as 2 free real bosons. Let's focus on one and use that $d\sigma^{\pm} = d\tau \pm d\sigma$. To write down the Hamiltonian it would be helpful to write the chiral and antichiral components in terms of modes that satisfy $\partial_{\pm} u^{\pm} \mp i\frac{\theta}{2\pi} u^\pm = - 2ik u^{\pm}$ (the factor of $\frac{1}{2}$ came from the change to holomorphic coordinates). This means that $u_k^\pm(\tau \pm \sigma) = \exp{-2i\left(k\mp \frac{\theta}{4\pi}\right)(\tau \pm \sigma)}$ where $k\mp \frac{\theta}{4\pi}$ has to be an integer which implies that $k \in \mathbb{Z} \pm \frac{\theta}{4\pi}$. Doing first quantization the algebra of the creation and annihilation operators corresponding to the coefficients of $u^{\pm}_k$ remain the same, but this time $k$ is not an integer. As a result, we can write the free bosons in our theory as (I've set $2\alpha' = 1$)
-% \begin{align*}
-% 	\partial_{\pm}\chi_{\pm} = \sum_{k\in \mathbb{Z}\pm \frac{\theta}{4\pi}} \alpha_{k}^{\pm} u_k^{\pm} && 
-% 	\partial_{\pm}\rho_{\pm} = \sum_{k\in \mathbb{Z}\pm \frac{\theta}{4\pi}} \beta_{k}^{\pm} u_k^{\pm}
-% \end{align*}
-% As a result, the Hamiltonian is given by
-% \begin{align*}
-% 	H = \sum_{}
-% \end{align*}
-% Look up Polchinski 2.9 p.73
-% The kinetic term of a free complex boson is given by $d \bar \phi \wedge \ast d\phi$ so in this case,we can introduce the function the free field $\psi$ defined as follows to undo the twisted boundary conditions 
-% \begin{equation*}
-% 	\phi(\sigma) = e^{\frac{i \theta \sigma}{\pi}} \psi(\sigma) \implies \psi(\sigma +\pi) = \psi(\sigma).
-% \end{equation*}
-% Not only that, but the Lagrangian now looks like $d_{A} \bar \psi \wedge \ast d_{A} \psi$ where $d_A = d + \frac{i\theta}{\pi} d\sigma$ which is an exterior covariant derivative with connection $A= \frac{i\theta}{\pi}d\sigma$, therefore the momentum operator will be given by $p_{\theta} = p_0 + \frac{\theta}{\pi}$. Similarly the rest of the oscillators should be of the form
-% Now we are ready to calculate the twisted Hamiltonian the same way as for an untwisted boson but with this new momentum.
-% \begin{equation*}
-% 	H(\theta) = L_0(\theta) + \bar L_0(\theta) + E(0) = \alpha_0(\theta)^2 + E(0) + = \alpha' p_\theta^2 + E(0) + \text{osc},
-% \end{equation*}
-% where $E(0)$ is the vacuum energy at $\theta = 0$ which is obtained by the Scwartzian derivative of the stress tensor, and $\text{osc}$ is a term that contains number operators for oscillators which will vanish anyway since the ground state for the free boson satisfies $\alpha_n \omega = 0$ for $n\geq0$. Using the same state but in the presence of $A$ we find that $p_{\theta}^2 \omega = \frac{\theta^2}{\pi^2} \omega$. As a result we find
-% \begin{equation*}
-% 	E(\theta) - E(0) = \frac{\alpha' \theta^2}{\pi^2}.
-% \end{equation*}
-% For the fermion the process is the same, however 
-% \problem*[5]
-
+Thankfully, Polchinski has the regularization of this sum. Using it we obtain
+\begin{equation*}
+    E(\theta) =  \frac{1}{6} - \frac{1}{4}\left( 1 - \frac{\theta}{\pi} \right)^2 - \frac{1}{4}\left( 1 + \frac{\theta}{\pi} \right)^2 = \frac{1}{6} -\frac{1}{2} \left( 1 + \frac{\theta^2}{\pi^2} \right)
+\end{equation*}
+For the anticommuting complex fermion the process is almost the same. The only difference there is that instead of using commutation relations when calculating $Hv$ we will use anticommutation relations which will give a negative sign. So for the fermion $E_f(\theta) = - E_b(\theta)$.
+\problem*[5]
+The mass operator is given by $-P^2$, so we need to calcualte the canonical momentum in the generic Lagrangian or problem 1. The zero mode momenta in the presence of constant $B$ can be written as 
+\begin{align*}
+	p_{L} &= w +\frac{1}{2}G^{-1}\left( k - 2B w \right) = \begin{pmatrix} 3-G^{-1}E & \frac{1}{2}G^{-1}\end{pmatrix} \binom{w}{k} \\
+	p_{R} &=-w +\frac{1}{2}G^{-1}\left( k - 2B w \right) = \begin{pmatrix} 2-G^{-1}E & \frac{1}{2}G^{-1}\end{pmatrix} \binom{w}{k}
+\end{align*}
+And the zero mode mass operator is given by
+\begin{align*}
+	M^2 = (G^{-1}p_L)^T p_L + (G^{-1}p_R)^Tp_R 
+\end{align*}
 \end{document}
