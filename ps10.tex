@@ -21,8 +21,7 @@ where $g=G(\partial_9,\cdot) = G_{9m}dx^m$, $b = b(\partial_{9}, \cdot) = B_{9m}
 where we have introduced the variable $X^9$ as the $T$-dual of $\tilde X^9$. These equations boil down to $dX^9 = \ast d\tilde X^9$ we saw when $G=\eta, B=0$. Plugging the second equation of motion back in and tryng to put it in the form of the first euqation we obtain 
 \begin{align*}
 	X^\ast \tilde G &= X^\ast\left[ G + \frac{1}{G_{99}}\left( b\otimes b - g\otimes g \right)\right]\\
-	X^\ast \tilde g &= \frac{1}{G_{99}} X^\ast b\\
-	\tilde G_{99} &= \frac{1}{G_{99}}
+	X^\ast \tilde g &= \frac{1}{G_{99}} X^\ast b & \tilde G_{99} = \frac{1}{G_{99}}
 \end{align*}
 for any $D-1$ dimensional embedding $X$. With these transformations we find 
 \begin{align*}
@@ -38,7 +37,7 @@ In the spacetime effective action the dillaton couples as $\sqrt{-G} e^{-2\Phi}$
 \end{equation*}
 As a result, we have that
 \begin{equation*}
-	\tilde \Phi = \Phi -\frac{1}{2} \log \sqrt{\frac{G}{\tilde G}} = \Phi - \frac{1}{2} \log G_{99}.
+	\tilde \Phi = \Phi -\frac{1}{2} \log \sqrt{\frac{\det G}{\det \tilde G}} = \Phi - \frac{1}{2} \log G_{99}.
 \end{equation*}
 \problem*[3]
 The potential for $N$ $D_0$ branes in Type IIA is proprtional to
@@ -59,28 +58,57 @@ We wrote the free boson in an expansion in terms of $e^{-2in(\tau \pm \sigma)}$ 
 	[\alpha_{k}^{\pm},\alpha_{l}^{\pm}] =[\beta_{k}^{\pm},\beta_{l}^{\pm}]=  \left(k \mp \frac{\theta}{2\pi}\right) \delta_{k+l} 
 \end{align*}
 Since for $\theta \neq 0 \mod 2\pi$ it is not possible for the zero mode (i.e.\ the one proportional to $(\tau - \sigma)$) to yield the twist for $\sigma \mapsto \sigma + \pi$ we will set $\alpha_0 = 0$ (anyway even for the vacuum of the untwisted sector this still holds so it won't affect the calculation).
-Therefore the Hamiltonian is given by
+Since the Hamiltonian for a single oscillator can be written as $(\alpha^\dagger \alpha + \alpha\alpha^\dagger)$ the full Hamiltonian is given by
 \begin{equation*}
-	H = \sum_{s=\pm 1}\sum_{k \in \mathbb{Z}} \alpha_{-k}^{s}\alpha_{k}^{s} + \beta_{-k}^{s}\beta_{k}^{s} 
+	H = \sum_{s=\pm 1}\sum_{k \in \mathbb{Z}} \alpha_{-k}^{s}\alpha_{k}^{s} + \beta_{-k}^{s}\beta_{k}^{s}.
 \end{equation*}
 The vacuum $v$ is the state with highest weight, therefore it is the one such that $\alpha_{k} v = 0$ for $k\geq 0$ (remembering that $k=0$ only exists for $\theta = 0$). Applying the Hamiltonian to the vacuum we obtain
 \begin{align*}
-	Hv &= \sum_{s=\pm 1} \sum_{k<0} \left[\alpha_{-k}^s\alpha_{k}^s + \beta_{-k}^s\beta_{k}^s\right]v
-	= \sum_{s=\pm 1} \sum_{k>0}2\left( k - \frac{s\theta}{2\pi} \right) v.
+	Hv &= \sum_{s=\pm 1} \sum_{k\leq -\frac{1+s}{2}} \left[\alpha_{-k}^s\alpha_{k}^s + \beta_{-k}^s\beta_{k}^s\right]v
+	= \sum_{s=\pm 1} \sum_{k\geq \frac{1+s}{2}} 2\left( k - \frac{s\theta}{2\pi} \right) v = \frac{\theta}{\pi}v + 2\sum_{s=\pm 1} \sum_{k>0}\left( k - \frac{s\theta}{2\pi} \right),
 \end{align*}
-Thankfully, Polchinski has the regularization of this sum. Using it we obtain
+where we've been careful to identify which is the lowest positive energy mode. Thankfully, Polchinski has the correct regularization of the divergent sum above. Using it we obtain
 \begin{equation*}
-    E(\theta) =  \frac{1}{6} - \frac{1}{4}\left( 1 - \frac{\theta}{\pi} \right)^2 - \frac{1}{4}\left( 1 + \frac{\theta}{\pi} \right)^2 = \frac{1}{6} -\frac{1}{2} \left( 1 + \frac{\theta^2}{\pi^2} \right)
+    E(\theta) =  \frac{1}{6} +\frac{\theta}{\pi} - \frac{1}{4}\left( 1 - \frac{\theta}{\pi} \right)^2 - \frac{1}{4}\left( 1 + \frac{\theta}{\pi} \right)^2 = -\frac{1}{3} +\frac{\theta}{\pi}-\frac{\theta^2}{\pi^2}
 \end{equation*}
-For the anticommuting complex fermion the process is almost the same. The only difference there is that instead of using commutation relations when calculating $Hv$ we will use anticommutation relations which will give a negative sign. So for the fermion $E_f(\theta) = - E_b(\theta)$.
+For the anticommuting complex fermion the process is almost the same. The only difference is that instead of using commutation relations when calculating $Hv$ we will use anticommutation relations which will give a negative sign. So for the fermion $E_f(\theta) = - E_b(\theta)$.
 \problem*[5]
-The mass operator is given by $-P^2$, so we need to calcualte the canonical momentum in the generic Lagrangian or problem 1. The zero mode momenta in the presence of constant $B$ can be written as 
+The mass operator is given by $-P^2$, so we need to calcualte the canonical momentum in the generic Lagrangian or problem 1. The zero mode momentum for each chirality in the presence of constant $B$ can be written as 
 \begin{align*}
-	p_{L} &= w +\frac{1}{2}G^{-1}\left( k - 2B w \right) = \begin{pmatrix} 3-G^{-1}E & \frac{1}{2}G^{-1}\end{pmatrix} \binom{w}{k} \\
-	p_{R} &=-w +\frac{1}{2}G^{-1}\left( k - 2B w \right) = \begin{pmatrix} 2-G^{-1}E & \frac{1}{2}G^{-1}\end{pmatrix} \binom{w}{k}
+	p_{L} &= w +\frac{1}{2}G^{-1}\left( k - 2B w \right) = \begin{pmatrix} 2- \frac{1}{2} G^{-1}E & \frac{1}{2}G^{-1}\end{pmatrix} \binom{w}{k}  = \bar E_L \binom{w}{k}\\
+	p_{R} &=-w +\frac{1}{2}G^{-1}\left( k - 2B w \right) = \begin{pmatrix} -\frac{1}{2}G^{-1}E & \frac{1}{2}G^{-1}\end{pmatrix} \binom{w}{k} = \bar E_R \binom{w}{k},
 \end{align*}
-And the zero mode mass operator is given by
+where we defined these last two matrices for future convenience. Therefore the zero mode mass operator is given by
 \begin{align*}
-	M^2 = (G^{-1}p_L)^T p_L + (G^{-1}p_R)^Tp_R 
+	M^2 
+    &= 2(Gp_L)^T p_L + 2(Gp_R)^Tp_R = \begin{pmatrix} w & k\end{pmatrix}  \left[ (G\bar E_L)^T \bar E_L + (G\bar E_R)^T \bar E_R\right]\\
+    &= 2\begin{pmatrix} w & k\end{pmatrix} \left[\binom{2G- \frac{1}{2}E^T}{ \frac{1}{2}} \begin{pmatrix} 2- \frac{1}{2} G^{-1}E & \frac{1}{2}G^{-1}\end{pmatrix} + \binom{- \frac{1}{2}E^T}{ \frac{1}{2}} \begin{pmatrix} - \frac{1}{2} G^{-1}E & \frac{1}{2}G^{-1}\end{pmatrix}\right]\binom{w}{k}\\
+    &= \begin{pmatrix} w & k\end{pmatrix} \begin{pmatrix}
+        E^TG^{-1}E & 2 - E^TG^{-1} \\
+        2 - G^{-1}E & G^{-1}
+    \end{pmatrix}
+    \binom{w}{k},
 \end{align*}
+where we've used that $E^T + E = 4G$ because $B^T = - B$. This is the matrix $\mathcal{G}$ we talked about in class.
+\problem*[6]
+% The spectrum should be invariant if we flip everything commutativity of addition implies that $M^2$ is invariant. Namely flipping everything involves
+% \begin{align*}
+% \binom{w}{k} \mapsto L \binom{w}{k} = \binom{k}{w} &&  (G\bar E_{L,R})^T \bar E_{L,R}  \mapsto L (G\bar E_{L,R})^T \bar E_{L,R} L && \text{where } L = \begin{pmatrix} 0 & 1\\ 1 & 0\end{pmatrix}
+% \end{align*} 
+Notice that since $G$ is restricted to the Eucledian compact coordinates, we can find an invertible $D$ such that $G = D^T D$. I would love to take credit for coming up with this, but this is the only way I could proceed with the hint in lecture which was to say that the big matrix above can be factorized as $F^TF$ for some $F$ given by
+\begin{align*}
+F = \begin{pmatrix}
+    2D & 0 \\
+    2D - (D^T)^{-1} E & (D^T)^{-1}
+\end{pmatrix}.
+\end{align*} 
+I think what will happen is that $F' = R F A $ where $R$ is some orthogonal matrix, we could figure this out by writing the metric $G'=\frac{1}{4}(E' + E'^T)$ and carrying out the computation. This would mean that $\mathcal{G}' = A^T F^TFA$ and since the vector $\binom{w}{k}$ transforms by $A^{-1}$ we'd find that the spectrum remains invariant (since the oscillators don't really konw about the transformation that takes $E \to E'$.
+% Now we can see that $F'A$ is given by
+% \begin{align*}
+% F'A = \begin{pmatrix}2D & 0 \\2D - (D^T)^{-1} E' & (D^T)^{-1}\end{pmatrix} \begin{pmatrix} a & b \\ c& d\end{pmatrix}
+% \end{align*} 
+% We also know that $A^TLA = L$ so we can calculate   
+% \begin{align*}
+% \bar E'_L &=  \frac{1}{2}G^{-1}\begin{pmatrix}4G - E' & 1\end{pmatrix} = \frac{1}{2}G^{-1}\begin{pmatrix}4G - E' & 1\end{pmatrix}
+% \end{align*} 
 \end{document}
