@@ -1,4 +1,5 @@
 \documentclass{homework}
+\usepackage{svg}
 
 \title{String Theory Final}
 \author{Panos Oikonomou}
@@ -13,21 +14,49 @@ This is where orbifolds come in. Studying the toolkit of orbifolds will allow us
 \tableofcontents
 
 \section{Orbifolding the Compact Boson}
-To study the toolkit of orbifolds we first play with the familiar case of the compact Boson. We can think of a compact Bosonic field $X : \Sigma \to S^1$ as a way to ``wrap'' the 2-dimensional Riemann surface $\Sigma$ on a circle. This interpretation allows us to steal a core mathematical idea to physics.
+To study the toolkit of orbifolds we first play with the familiar case of the compact Boson. This is not meant to be an exhaustive review, rather a familiar example which highlights things that we expect on the heterotic string orbifold which have a murkier geometric interpretation. 
+
+We can think of a compact Bosonic field $X : \Sigma \to S^1$ as a way to ``wrap'' the 2-dimensional Riemann surface $\Sigma$ on a circle. This interpretation allows us to steal a core mathematical idea to physics.
 \subsection{Mathematical Orbifolds}
 Let $G$ be some finite group with an action on a smooth manifold $M$, then the orbifold $M/G$ is the topological space of $G$ equivalence classes on $M$. In other words an orbifold is the shape we obtain by ``folding'' all the points on a manifold that are related by a symmetry on top of each other.
 
-Back to the example of a circle, we have a $\mathbb{Z}_2$ action that maps $\theta \mapsto -\theta$, where $\theta$ is the angle relative to the fixed point of the action. We can then construct the familiar orbifold of the circle which ends up looking like a line segment. The real physics question is, \textit{can we use the field theory that folds $\Sigma$ to $S^1$ to build a theory that folds it to its orbifold instead}? 
+Back to the example of a circle, we have a $\mathbb{Z}_2$ action that maps $X \mapsto -X$, where $X$ is the angle relative to the fixed point of the action as shown in Fig.~\ref{fig:circle-orbifold}. We can then construct the familiar orbifold of the circle which ends up looking like a line segment. The real physics question is, \textit{can we use the field theory that folds $\Sigma$ to $S^1$ to build a theory that folds $\Sigma$ to the orbifold instead}?
+\begin{figure}
+	\centering
+	\includesvg[width=0.7\textwidth]{media/circle_orbifold}
+	\caption{The $\mathbb{Z}_2$ orbifold of the circle under the $X\mapsto - X$ map. The fixed point is shown in green.}\label{fig:circle-orbifold}
+\end{figure}
+
 \subsection{Untwisted Sector}
 To answer this we can cast this orbifold procedure into physics language. We notice that the $\mathbb{Z}_2$ action we described is a global symmetry of the compact free Boson theory, while on the orbifold it is as if this symmetry has become local because the point $X(\sigma, \tau)$ and $-X(\sigma, \tau)$ are the same. So this idea of using the theory of the circle to obtain a theory on the orbifold is identical to gauging a global symmetry. Not only that, but we have already seen examples of this in places like the orientifold construction and the GSO projection. So let's see it in practice.
 
-When we say we want to ``find the theory'' what we really mean is to find some way to describe the Hilbert space. We can start by asking what states of the compact free boson remain in the theory defined on the orbifold. Such states are obtained by acting with the mode operators $\alpha_n$ of a Boson with periodic boundary conditions such that under the transformation $a_n\mapsto -a_n$ they remain invariant.
-
+When we say we want to ``find the theory'' what we really mean is to find some way to describe the Hilbert space. We can start by asking what states of the compact free boson remain in the theory defined on the orbifold. Such states are obtained by acting with the mode operators $\alpha_n$ of a Boson with periodic boundary conditions such that under the transformation $\sigma:\alpha_n\mapsto -\alpha_n$ they remain invariant. This is simply the states with an even number of generators. In fact we can calculate the torus partition function by projecting out the states with a negative $\sigma$ eigenvalue to obtain (as we already have in a homework)
+\begin{align*}
+	\hat Z 
+	&= \text{Tr}_{\mathbb{H}} \frac{1 + \sigma}{2} q^{L_0 - \frac{1}{24}} \bar q^{\bar L_0 - \frac{1}{24}}
+	= \frac{(q \bar q)^{\frac{1}{24}}}{2} \prod_{n \in \mathbb{N}}\abs{1 - q^n}^{-2} + \frac{(q \bar q)^{\frac{1}{24}}}{2} \prod_{n\in \mathbb{N}} \abs{1 + q^{n}}^{-2}\\
+	&= \frac{1}{2\sqrt{4\pi^2 \alpha'\text{Im\,}\tau} \abs{\eta(\tau)}^2} + \abs{\frac{\eta(\tau)}{\theta_{10}(\tau)}}.
+\end{align*}
+Here we recognize the first term as (half) the partition function of the free Boson, while the second is the term that accounts for subtracting the degrees of freedom that are not invariant under $\sigma$.
 \subsection{Twisted Sectors}
-\subsection{Cheating via Modularity}
-\subsection{Generalizing}
-% talk about how we secretly used the symmetries of $X$ to find out that we can orbifold the circle, and when we introduce things Fermions we have to find the full symmetry group. 
+The partition function we have calculated is not modular invariant because $\theta_{10}(-1/\tau) \propto \theta_{01}(\tau)$. This indicates that the theory must have more states than the ones that we have counted and once we account for them, we will get the extra terms in the torus partition function that will restore modularity. This makes sense because we really only considered ways to wrap $\Sigma$ around a circle such that this was invariant under the orbifold. 
 
+If instead the free boson had the property $X(\sigma + \pi,\tau) = - X(\sigma,\tau)$ while this would not lead to a valid ``wrapping'' around a circle, in the orbifold it's still fine! So let's include states that have these boundary conditions. States such that their holonomy is up to the group action we are gauging by are said to belong to the \textit{twisted sectors} of the theory since we wouldn't find them in the local Hilbert space.
+
+Thankfully in the homework we have also calculated the correct phase that we need to shift $L_0$ by in the twisted sector by calculating the vacuum energy contribution of the twisted boundary conditions. So the trace of the invariant part of the twisted sector is given by
+\begin{align*}
+	\hat Z_\sigma &=
+	\text{Tr}_{\mathbb{H}_\sigma} \frac{1+\sigma}{2} q^{L_0 + \frac{1}{48}} \bar q^{\bar L_0 + \frac{1}{48}} 
+	= (q\bar q)^{\frac{1}{48}} \prod_{n \in \mathbb{N}} \abs{1-q^{n-\frac{1}{2}}}^{-2} (q\bar q)^{\frac{1}{48}} \prod_{n \in \mathbb{N}} \abs{1+q^{n-\frac{1}{2}}}^{-2}\\
+	&= \abs{\frac{\eta(\tau)}{\theta_{10}(\tau)}} + \abs{\frac{\eta(\tau)}{\theta_{00}(\tau)}}.
+\end{align*} 
+Adding these two terms into our partition function from above fixes our modular invariance issue since the first term of the twisted partition function transforms into the second term of the untwisted one, while the last term is modular invariant by itself.
+\subsection{Generalizing}
+We are by no means done with exploring the $\mathbb{Z}_2$ orbifold of the free boson, but we have encountered enough cool properties to motivate the general construction that we will adopt on the Heterotic string in the next section. 
+
+The first important observation is that the procedure of orbifolding a string theory was to examine how the target space transformations we want to orbifold by form a set of global symmetries for the underlying CFT and gauging that. This is obvious when the fields are simply the coordinates, but as soon as we have fermions in the mix we will see that there might not always be a unique way to interpret which global symmetries correspond to the target space transformations we want to orbifold by.
+
+Another observation is that twisted sectors appear. We used modularity to observe that simply finding the invariant states under the global transfromations was not enough to obtain the full spectrum of the orbifolded theory. We resolved this by using our intuition to realize that configurations with twisted boundary conditions on the circle will have untwisted boundary condtiions on its the orbifold. This reflects the fact that when we gauge in a general QFT we not only have to path integrate over all configurations of the connection one form, but also have to sum over all principal bundles. This has a physical effect that we see states with different masses than in the previous theory which come from the shift of the vacuum energy in the twisted sector.
 \section{Heterotic String Orbifolds}
 The $E_8 \times E_8$ heterotic string has 10 free bosons $X$ with periodic boundary conditions, 32 left moving positive chirality Majorana spinors $\lambda$ half of them with periodic and the other half with antiperiodic boundary conditions, and 10 right moving positive chirality Majorana Fermions and either periodic or antiperiodic boundary conditions.
 \subsection{Obstructions to gauging}
