@@ -59,13 +59,32 @@ The first important observation is that the procedure of orbifolding a string th
 Another observation is that twisted sectors appear. We used modularity to observe that simply finding the invariant states under the global transformations was not enough to obtain the full spectrum of the orbifolded theory. We resolved this by using our intuition to realize that configurations with twisted boundary conditions on the circle will have untwisted boundary conditions on its the orbifold. This reflects the fact that when we gauge in a general QFT we not only have to path integrate over all configurations of the connection one form, but also have to sum over all principal bundles. This has a physical effect that we see states with different masses than in the previous theory which come from the shift of the vacuum energy in the twisted sector.
 \section{Heterotic String Orbifolds}
 % The $E_8 \times E_8$ heterotic string has 10 free bosons $X$ with periodic boundary conditions, 32 left moving positive chirality Majorana spinors $\lambda$ half of them with periodic and the other half with antiperiodic boundary conditions, and 10 right moving positive chirality Majorana Fermions and either periodic or antiperiodic boundary conditions.
-For more interesting phisics let's examine what happens when we take the 3D orbifold  
+For more interesting physics let's examine what happens when we orbifold the heterotic string by a discrete Abelian group. The setup is as follows. We compactify the 10 dimensional heterotic string on a 6 dimensional torus $T^6$ formed by a lattice $\Lambda$ that we will describe in a bit. Then we take some symmetries of the torus and form an abelian group $G$ and orbifold by them (Technically the toroidal compactification is in itself an orbifold, but we can start directly from there). Therefore the final target space looks like
+\begin{equation*}
+	\mathbb{R}^{3,1}\times (T^6/G)
+\end{equation*}
+Assume that we have found a rotation of the torus $\sigma$ with index $k \in \mathbb{N}$, i.e.\ such that $\sigma^k = 1$ then we can find out how such a rotation can be interpreted as a symmetry of the fields in the heterotic string and effectively orbifold by $\mathbb{Z}_k \coloneqq \langle \sigma^k\rangle$. Such a rotation will be part of $SO(6)$ and we can always change our coordinates such that the rotation is along the generators of a $U(1)^3 \subset SO(6)$. Let's call these generators $J_a$ for $a\in\{1,2,3\}$ and the corresponding angles $\theta_a$, which implies that $\sigma=e^{i\theta \cdot J}$ when it acts on the Bosons.
 
+In these coordinates we have effectively split the last 6 toroidal coordinates into three pairs where a $J_a$ rotates the $a^{\text{th}}$ pair. We can define $Z^a = \frac{1}{\sqrt{2}} \left(X^{a_1} + i X^{a_2}\right)$, where $a_1, a_2$ are the indices corresponding to the coordinates that $J_a$ is rotating. Therefore we can write the embedding coordinates as $X = (X^0,\cdots, X^3, Z^1, \bar Z^1, \cdots, Z^3, \bar Z^3)$. The reason for doing this is that now they transform as complex bosons under $\sigma$ 
+\begin{align*}
+	\sigma \cdot Z^a = e^{i\theta_a} Z^a.
+\end{align*}
+This theory doesn't only have bosons though. Thanks to supersymmetry we know that the antichiral fermions transform the same way after we define the Dirac fermions $\bar \phi^a = \frac{1}{\sqrt{2}}\left( \bar \psi^{a_1} + i \bar \psi^{a_2} \right)$
+\begin{align*}
+	\sigma \cdot \bar \phi^a = e^{i\theta_a} \bar \phi^a.
+\end{align*}
+Yet, this transformation doesn't fix how the supercurrents $\lambda$ transform. We know that thy must transform under $SO(16)\times SO(16)$ since they are the currents that generate it (the remaining currents that form $E_8\times E_8$ are the fermionic vertex operators). So it seems that we have freedom to choose a gauge transformation for the $\lambda$'s. Not that much freedom thought. If we assume that the identity transformation in the target space comes with the idnetity transformation of the $\lambda$'s, then it should be the case that the action of $r$ on the supercurrents still satisfies $r^k = 1$. 
+
+Chosing the $\lambda$ appropriately, a general transformation of $SO(16)\otimes SO(16)$ can be written in terms of generators of $U(1)^{16} \subset SO(16)\otimes SO(16)$ so if we call these generators $L_a$ for $a \in {1,\cdots, 16}$ and the corresponding angles $\beta_a$ we have that $r = e^{i\theta\cdot J + i\beta \cdot L}$. We can do a similar trick and define $\mu^a = \frac{1}{\sqrt{2}}\left( \lambda^{a_1} + i \lambda^{a_2} \right)$ such that $r$ acts as
+\begin{align*}
+	\sigma \cdot \mu^a = e^{i\beta_a}\mu^a.
+\end{align*}
+A convenient choice of angle is $\beta^a = \theta^a$ for $a\in \{1,\cdots 4\}$ and zero otherwise.
 \subsection{Obstructions to gauging}
 One key issue that wasn't evident in the free Boson orbifold is that in general we might not be able to construct a consistent string theory for any orbifold. Phases between the terms in the torus partition function can potentially break modularity. This happens when we can't assign a phase to the path integral over a sector that is independent of large gauge transformations. Such an anomaly is called a gravitational anomaly and we must ensure that whatever we try to gauge doesn't lead to one. Thankfully, it can be shown that, if we try to orbifold an Abelian group, the only kind of anomaly that can break modularity is gravitational.
 
 The partition function for any well defined string theory is manifestly modular invariant in the untwisted sector. Therefore, if we see any anomaly it will appear in the partition function contributions from the twisted sectors.
-\subsection{The $\mathbb{Z}_3$ Orbifold}
+\subsection[The $Z_3$ Orbifold]{The $\mathbb{Z}_3$ Orbifold}
 \subsection{Spacetime Supersymmetry}
 \subsection{$E_6$ Spectrum and Grand Unification}
 \end{document}
