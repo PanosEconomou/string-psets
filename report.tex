@@ -33,7 +33,7 @@ To answer this we can cast this orbifold procedure into physics language. We not
 When we say we want to ``find the theory'' what we really mean is to find some way to describe the Hilbert space. We can start by asking what states of the compact free boson remain in the theory defined on the orbifold. Such states are obtained by acting with the mode operators $\alpha_n$ of a Boson with periodic boundary conditions such that under the transformation $\sigma:\alpha_n\mapsto -\alpha_n$ they remain invariant. This is simply the states with an even number of generators. In fact we can calculate the torus partition function by projecting out the states with a negative $\sigma$ eigenvalue to obtain (as we already have in a homework)
 \begin{align*}
 	\hat Z 
-	&= \text{Tr}_{\mathbb{H}} \frac{1 + \sigma}{2} q^{L_0 - \frac{1}{24}} \bar q^{\bar L_0 - \frac{1}{24}}
+	&= \text{Tr}_{\mathbb{H}} \frac{1 + \sigma}{2} q^{L_0 - \frac{1}{24}} \bar q^{\tilde L_0 - \frac{1}{24}}
 	= \frac{(q \bar q)^{\frac{1}{24}}}{2} \prod_{n \in \mathbb{N}}\abs{1 - q^n}^{-2} + \frac{(q \bar q)^{\frac{1}{24}}}{2} \prod_{n\in \mathbb{N}} \abs{1 + q^{n}}^{-2}\\
 	&= \frac{1}{2\sqrt{4\pi^2 \alpha'\text{Im\,}\tau} \abs{\eta(\tau)}^2} + \abs{\frac{\eta(\tau)}{\theta_{10}(\tau)}}.
 \end{align*}
@@ -46,7 +46,7 @@ If instead the free boson had the property $X(\sigma + \pi,\tau) = - X(\sigma,\t
 Thankfully in the homework we have also calculated the correct phase that we need to shift $L_0$ by in the twisted sector by calculating the vacuum energy contribution of the twisted boundary conditions. So the trace of the invariant part of the twisted sector is given by
 \begin{align*}
 	\hat Z_\sigma &=
-	\text{Tr}_{\mathbb{H}_\sigma} \frac{1+\sigma}{2} q^{L_0 + \frac{1}{48}} \bar q^{\bar L_0 + \frac{1}{48}} 
+	\text{Tr}_{\mathbb{H}_\sigma} \frac{1+\sigma}{2} q^{L_0 + \frac{1}{48}} \bar q^{\tilde L_0 + \frac{1}{48}} 
 	= (q\bar q)^{\frac{1}{48}} \prod_{n \in \mathbb{N}} \abs{1-q^{n-\frac{1}{2}}}^{-2} (q\bar q)^{\frac{1}{48}} \prod_{n \in \mathbb{N}} \abs{1+q^{n-\frac{1}{2}}}^{-2}\\
 	&= \abs{\frac{\eta(\tau)}{\theta_{10}(\tau)}} + \abs{\frac{\eta(\tau)}{\theta_{00}(\tau)}}.
 \end{align*} 
@@ -69,9 +69,9 @@ In these coordinates we have effectively split the last 6 toroidal coordinates i
 \begin{align*}
 	\sigma \cdot Z^a = e^{i\theta_a} Z^a.
 \end{align*}
-This theory doesn't only have bosons though. Thanks to supersymmetry we know that the antichiral fermions transform the same way after we define the Dirac fermions $\bar \phi^a = \frac{1}{\sqrt{2}}\left( \bar \psi^{a_1} + i \bar \psi^{a_2} \right)$
+This theory doesn't only have bosons though. Thanks to supersymmetry we know that the antichiral fermions transform the same way after we define the Dirac fermions $\tilde \phi^a = \frac{1}{\sqrt{2}}\left( \tilde \psi^{a_1} + i \tilde \psi^{a_2} \right)$
 \begin{align*}
-	\sigma \cdot \bar \phi^a = e^{i\theta_a} \bar \phi^a.
+	\sigma \cdot \tilde \phi^a = e^{i\theta_a} \tilde \phi^a.
 \end{align*}
 Yet, this transformation doesn't fix how the supercurrents $\lambda$ transform. We know that thy must transform under $SO(16)\times SO(16)$ since they are the currents that generate it (the remaining currents that form $E_8\times E_8$ are the fermionic vertex operators). So it seems that we have freedom to choose a gauge transformation for the $\lambda$'s. Not that much freedom thought. If we assume that the identity transformation in the target space comes with the identity transformation of the $\lambda$'s, then it should be the case that the action of $r$ on the supercurrents still satisfies $r^k = 1$. 
 
@@ -89,10 +89,25 @@ The partition function for any well defined string theory is manifestly modular 
 
 In the twisted sector the fields have boundary conditions augmented by the symmetry action. In our case here is a summary of how that looks like for some natural number $0<n<k$
 \begin{align*}
-	Z^a(\sigma + \pi) = e^{i\theta_a}Z^a(\sigma) && \bar \phi^a(\sigma + \pi) = e^{i\theta_a + i\nu} \bar \phi^a(\sigma) && \mu^a(\sigma + \pi) = e^{i\beta_a + i\nu} \mu^a(\sigma),
+	Z^a(\sigma + \pi) = e^{i\theta_a}Z^a(\sigma) && \tilde \phi^a(\sigma + \pi) = e^{i\theta_a + i\nu} \tilde \phi^a(\sigma) && \mu^a(\sigma + \pi) = e^{i\beta_a + i\nu} \mu^a(\sigma),
 \end{align*}
-where $\nu$ is an angle that defines the $R$ or $NS$ boundary condition of the corresponding field. The reason why this is relevant is that the modes vacuum energy will be shifted for each field and it might happen that the leading power of $q$ in the partition function is no longer invariant under $\tau \mapsto \tau + 1$.  
+where $\nu$ is an angle that defines the $R$ or $NS$ boundary condition of the corresponding field. The reason why this is relevant is that the modes vacuum energy will be shifted for each field and it might happen that the leading power of $q$ in the partition function is no longer invariant under $\tau \mapsto \tau + 1$. To show this, we know that the partition function is given by
+\begin{align*}
+	\text{tr\,} q^{L_0} \bar q^{\tilde L_0}\xRightarrow{\tau \mapsto \tau+1} \text{tr\,} e^{2\pi i (L_0 - \tilde L_0)}q^{L_0} \bar q^{\tilde L_0}.
+\end{align*}
+Therefore what we would like is that first factor to be 1 so that the partition function is invariant, which means that $L_0 - \tilde L_0$ should be an integer over the spectrum.
+
+First in the sector where all the fermions are in the Ramond sector $(\nu =0)$ we use the result we derived in the homework to calculate the level mismatch between the left and right movers. In particular we know that the change in the zero point energy for a complex boson is given by $\Delta E_b = -\frac{\theta}{4\pi}\left( \frac{\theta}{2\pi} - 1 \right)$, and minus that for the fermion. Then we can find that
+\begin{align*}
+	L_0 - \tilde L_0 
+	&= - \sum_{a=1}^{3} (N_Z^a - N_{\bar Z}^{a} + \tilde N_Z^a - \tilde N_{\bar Z}^{a} + \tilde N_{\phi}^a - \tilde N_{\bar \phi}^a)\frac{\theta_a}{2\pi} - \sum_{a=1}^{16} (N_{\mu}^a - N_{\bar \mu}^a)\frac{\beta_a}{2\pi}\\
+	&\ \ \ \, + \sum_{a=1}^{3} \frac{\theta_a}{4\pi}\left( \frac{\theta_a}{2\pi} - 1 \right) + \sum_{a=1}^{16}\frac{\beta_a}{4\pi}\left( \frac{\beta_a}{2\pi} - 1 \right).
+\end{align*}
+Notice that the top term 
 \subsection[The $Z_3$ Orbifold]{The $\mathbb{Z}_3$ Orbifold}
+$\rightarrow$ Describe the lattice that forms the $T^6$ that we will later orbifold, why we pick that lattice using roots of unity, and then briefly mention why we should embed the spin connection in the gauge connection. 
+\subsection{Low Energy Spectrum}
+$\rightarrow$ Show the low energy spectrum and how it decomposes under the $\mathbb{Z}_3$ in the untwisted and twisted sectors, then highlight what states would survive the projection. In particular use the $SU(3)\times E_6$ subgroup of $E_8$, after justifying how to find it using Dynkin diagrams, to highlight the representations that appear in the $E6$ GUT. Hopefully mention how the standard model is only visible through gravitational interactions, but I need to understand it first.
 \subsection{Spacetime Supersymmetry}
-\subsection{$E_6$ Spectrum and Grand Unification}
+$\rightarrow$ Explain why we expect that only one spacetime $d=4$ supersymmetry should be present and be spontaneously broken in the weak scale, and use this to motivate the oribifold that we took.
 \end{document}
