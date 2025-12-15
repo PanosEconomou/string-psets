@@ -143,7 +143,7 @@ Now that we know how the representations of the gauge excitations will be decomp
 
 Consider any eigenstate $\ket{v}$ of the $U(1)^{16}$ generators $S_a$ that we have used to label the center of $SO(16)\times SO(16)$ and define the eigenvalues $S_a \ket{v} = s_i\ket{v}$. Then, we know $e^{i\beta \cdot S} \ket{v} = e^{i\beta\cdot s} \ket{v}$. We can use this to find out how $r$ acts on each representation of the gauge group. The center of $SU(3)$ is $Z_{SU(3)} =\{1, \omega, \omega^2\}$, so in the fundamental representation $\mathbf{3}$, we have that all the states have the same eigenvalues $s_1 = 0, s_2 = 1/3, s_3 = 2/3$ which implies that $r \ket{v} = \omega\ket{v}$. For the anti-fundamental $\overline{\mathbf{3}}$ the order of generators is permuted so we get $r \ket{v} = \omega^{-1}\ket{v} = \omega^2 \ket{v}$. Finally in the adjoint representation $\mathbf{8}$ the center acts as identity, so we get $r \ket{v} = \ket{v}$.
 
-\textbf{Chiral bosons.} There are more physical left moving states than the ones created using modes of the $\lambda$s. In particular we have found that any state of the form $\ket{v} = \alpha_{-1}^{\mu} \ket{0}$ satisfies $(L_0 - 1)\ket{v} = 0$. So it would be nice to see how these decompose into eigenstates of $r$. Here though, things are easier since $r$ doesn't act when $\mu \in \{2,3\}$, so such states satisfy $r \ket{v} = \ket{v}$. On the other hand, modes of $Z^a$ look like $z^a\coloneqq\frac{1}{\sqrt{2}}\left(\alpha_{k}^{a_1} + i \alpha_k^{a_2}\right)$. Since $r Z^a = \omega Z^a$ we find that states of the form $\ket{v} = z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega \ket{v}$. Similarly, states of the form $\ket{v} = \bar z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega^2 \ket{v}$. A summmary of the decomposition into $r$ eigenvalues is in table~\ref{tab:untwisted}.
+\textbf{Chiral bosons.} There are more physical left moving states than the ones created using modes of the $\lambda$s. In particular we have found that any state of the form $\ket{v} = \alpha_{-1}^{\mu} \ket{0}$ satisfies $(L_0 - 1)\ket{v} = 0$. So it would be nice to see how these decompose into eigenstates of $r$. Here though, things are easier since $r$ doesn't act when $\mu \in \{2,3\}$, so such states satisfy $r \ket{v} = \ket{v}$. On the other hand, modes of $Z^a$ look like $z^a\coloneqq\frac{1}{\sqrt{2}}\left(\alpha_{k}^{a_1} + i \alpha_k^{a_2}\right)$. Since $r Z^a = \omega Z^a$ we find that states of the form $\ket{v} = z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega \ket{v}$. Similarly, states of the form $\ket{v} = \bar z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega^2 \ket{v}$. A summmary of the decomposition into $r$ eigenvalues is in Table~\ref{tab:untwisted}.
 
 \textbf{Antichiral NS.} In the right moving sector, the massless heterotic string excitations are $\mathbf{8}_c$ in the Ramond sector, and $\mathbf{8}_v$ in the Neveau-Schwartz sector as fundamental $SO(8)$ representations. These the vector representation in the NS sector is given by state of the form $\ket{v} = \tilde \psi_{-\frac{1}{2}}^{\mu} \ket{0}_{NS}$ which we can classify using the argument above in the trivial $r$ eigenspace for $\mu \in \{2,3\}$, in the $\omega$ eigenspace for states of the form $\ket{v} = \tilde \phi^a_{-\frac{1}{2}} \ket{0}_{NS}$, and the $\omega^2$ eigenspace for the states in the conjugate representations.
 
@@ -158,9 +158,9 @@ where $\mathbf{1}, \overline{\mathbf{1}}$ are the two singlets with an eigevalue
     \begin{tabular}{ccc}
     &\multicolumn{2}{c}{\textbf{Representation} or \textbf{Generators}}\\
     \hline\hline
-    $r$ & {Right Massless } & Left Massless\\
+    $r$ & {Left Massless } & Right Massless\\
     \hline
-    \multirow{2}{1em}{$1$}           & $\mathbf{8}				\otimes \mathbf{1}				\otimes \mathbf{1}$
+    \multirow{2}{0.5em}{$1$} & $\mathbf{8}				\otimes \mathbf{1}				\otimes \mathbf{1}$
     			, $\mathbf{1}				\otimes \mathbf{78}				\otimes \mathbf{1}$
                 & \multirow{2}{8em}{$\mathbf{1}$, $\overline{\mathbf{1}}$, $\psi^{\mu}_{-\frac{1}{2}} \ket{0}_{NS}$} \\
     			& $\mathbf{1}				\otimes \mathbf{1} 				\otimes \mathbf{248}$  
@@ -191,9 +191,26 @@ The issue here, is that in the twisted sector we don't know how the last three o
     \textbf{NS: }  \pi & : -\frac{1}{8} & \pi \pm \frac{2\pi}{3} &: -\frac{5}{72} &
     \textbf{R: }  0 & : 0   & \pm \frac{2\pi}{3} &: - \frac{1}{9}.
 \end{align*}
-In the $(R,NS)$ the zero point energy shift vanishes, therefore massless states are vacuum states. Since the modes for $\mu^{a}$ have an extra twist they have higher energy so they don't form vacuum states, the remaining $10$ Dirac fermions form the fundamental spinor representations $\mathbf{16} \oplus \overline{\mathbf{16}}$ of $SO(10)$.
+In the $(R,NS)$ the zero point energy shift vanishes, therefore massless states are vacuum states. Since the modes for $\mu^{a}$ have an extra twist they have higher energy so they don't form vacuum states, the remaining $10$ Dirac fermions form the fundamental spinor representations $\mathbf{16} \oplus \overline{\mathbf{16}}$ of $SO(10)$. Using the same argument about GSO as above we can see that only the $\overline{\mathbf{16}}$ survives. 
 
-In the (NS,NS) sector the zero point energy shift is $-\frac{1}{2}$ so we can generate, but each complex fermion mode contributes either $\frac{1}{6}$ or $\frac{1}{2}$ to the level. So we can find a singlet $\mathbf{1}$ formed by $\mu^1 \mu^2\mu^3 \ket{0}_{(NS,NS)}$, and the fundamental vector representation $\mathbf{10}$ of $SO(10)$ formed by the 10 untwisted generators. In addition to these states we have massless $\mu^{a}_{-\frac{1}{6}} \bar z_{-\frac{1}{3}}^b\ket{0}_{(NS,NS)}$, which generate three copies of the fundamental $\textbf{3}$ of $SU(3)$. And finally there are no other massless states in the remaining sectors. 
+In the $(NS,NS)$ sector the zero point energy shift is $-\frac{1}{2}$ so we can generate, but each complex fermion mode contributes either $\frac{1}{6}$ or $\frac{1}{2}$ to the level. So we can find a singlet $\mathbf{1}$ formed by $\mu^1 \mu^2\mu^3 \ket{0}_{(NS,NS)}$, and the fundamental vector representation $\mathbf{10}$ of $SO(10)$ formed by the 10 untwisted generators. In addition to these states we have massless $\mu^{a}_{-\frac{1}{6}} \bar z_{-\frac{1}{3}}^b\ket{0}_{(NS,NS)}$, which generate three copies of the fundamental $\textbf{3}$ of $SU(3)$, but are invariant under $r$. And finally there are no other massless states in the remaining sectors. 
+
+Notice that we can combine the fundamental $\mathbf{10}$ of $SO(10)$ with the fundamental $\overline{\mathbf{16}}$ of $SO(10)$ to build a fundamental representation of $E_6$ given by $\overline{\mathbf{27}} \cong \mathbf{10} \oplus \overline{\mathbf{16}}$. A summary of these results is in Table~\ref{tab:twisted}.
+
+\begin{table}
+    \begin{center}
+    \begin{tabular}{ccc}
+    &\multicolumn{2}{c}{\textbf{Representation} or \textbf{Generators}}\\
+    \hline\hline
+    $r$ & {Left Massless} & Right Massless\\
+    \hline
+	\multirow{2}{0.5em}{$1$} & $\mathbf{1}\otimes \overline{\mathbf{27}} \otimes \mathbf{1}$ & $\ket{0}_{R}$ \\
+	& $\mathbf{3} \otimes \mathbf{1}\otimes \mathbf{1}$ & $\ket{0}_{NS}$ \\
+	\hline
+    \end{tabular}
+    \caption{Collection of massless states in the twisted left and right moving sectors written as either a basis, or a representation of $SO(3)\times E_6\times E_8$ for the right movers or $SO(8)$ for the left as decribed in the text.\label{tab:twisted}}
+    \end{center}
+\end{table}
 
 \textbf{Degeneracy.} Here is an issue. There is not just one way to twist the fields on the torus $T^6$. So far we examined the twist with boundary conditions $X(\sigma + \pi) = r\cdot X(\sigma)$, but we know that $X \sim X + R \sim X + \omega R$, so we could have equally looked into twisted sectors of the form $X(\sigma + \pi) = r\cdot X(\sigma) + \omega R$ and so on. There are three boundary conditions for each dimension, so we would have $3^3 = 27$ possible twisted sectors for each $r, r^2$. Luckily though since they are all related by shifts, they are all isomorphic. The only tangible impact this has in the final calculation of the massless spectrum is that we need to add each twisted sector $27$ times.
 
