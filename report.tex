@@ -1,5 +1,6 @@
 \documentclass{homework}
 \usepackage{svg}
+\usepackage{multirow}
 
 \title{String Theory Final}
 \author{Panos Oikonomou}
@@ -142,26 +143,7 @@ Now that we know how the representations of the gauge excitations will be decomp
 
 Consider any eigenstate $\ket{v}$ of the $U(1)^{16}$ generators $S_a$ that we have used to label the center of $SO(16)\times SO(16)$ and define the eigenvalues $S_a \ket{v} = s_i\ket{v}$. Then, we know $e^{i\beta \cdot S} \ket{v} = e^{i\beta\cdot s} \ket{v}$. We can use this to find out how $r$ acts on each representation of the gauge group. The center of $SU(3)$ is $Z_{SU(3)} =\{1, \omega, \omega^2\}$, so in the fundamental representation $\mathbf{3}$, we have that all the states have the same eigenvalues $s_1 = 0, s_2 = 1/3, s_3 = 2/3$ which implies that $r \ket{v} = \omega\ket{v}$. For the anti-fundamental $\overline{\mathbf{3}}$ the order of generators is permuted so we get $r \ket{v} = \omega^{-1}\ket{v} = \omega^2 \ket{v}$. Finally in the adjoint representation $\mathbf{8}$ the center acts as identity, so we get $r \ket{v} = \ket{v}$.
 
-\textbf{Chiral bosons.} There are more physical left moving states than the ones created using modes of the $\lambda$s. In particular we have found that any state of the form $\ket{v} = \alpha_{-1}^{\mu} \ket{0}$ satisfies $(L_0 - 1)\ket{v} = 0$. So it would be nice to see how these decompose into eigenstates of $r$. Here though, things are easier since $r$ doesn't act when $\mu \in \{2,3\}$, so such states satisfy $r \ket{v} = \ket{v}$. On the other hand, modes of $Z^a$ look like $z^a\coloneqq\frac{1}{\sqrt{2}}\left(\alpha_{k}^{a_1} + i \alpha_k^{a_2}\right)$. Since $r Z^a = \omega Z^a$ we find that states of the form $\ket{v} = z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega \ket{v}$. Similarly, states of the form $\ket{v} = \bar z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega^2 \ket{v}$. A summmary of the decomposition into $r$ eigenvalues is in table~\ref{tab:left-untwisted}.
-\begin{center}
-\begin{tabular}{ccc}
-	\caption{Collection of massless states in the left moving sector written as either a basis, or a rerpesentation of $SO(3)\times E_6\times E_8$.\label{tab:left-untwisted}}
-	\multicolumn{2}{l}{Left Moving Massless Excitations} \\
-	\hline\hline
-	$\mathbf{r}$ & \textbf{Representation} or \textbf{Generators} \\
-	\hline
-	1           & $\mathbf{8}				\otimes \mathbf{1}				\otimes \mathbf{1}$
-				, $\mathbf{1}				\otimes \mathbf{78}				\otimes \mathbf{1}$
-				, $\mathbf{1}				\otimes \overline{\mathbf{78}}	\otimes \mathbf{1}$ 
-				, $\mathbf{1}				\otimes \mathbf{1} 				\otimes \mathbf{248}$  
-				, $\alpha^{\mu}_{-1} \ket{0}$ \\
-	$\omega$    & $\mathbf{3}				\otimes \mathbf{27}				\otimes \mathbf{1}$
-				, $z^{a}_{-1} \ket{0}$ \\
-	$\omega^2$  & $\overline{\mathbf{3}}	\otimes \overline{\mathbf{27}}	\otimes \mathbf{1}$
-				, $\bar z^{a}_{-1} \ket{0}$ \\
-	\hline
-\end{tabular}
-\end{center}
+\textbf{Chiral bosons.} There are more physical left moving states than the ones created using modes of the $\lambda$s. In particular we have found that any state of the form $\ket{v} = \alpha_{-1}^{\mu} \ket{0}$ satisfies $(L_0 - 1)\ket{v} = 0$. So it would be nice to see how these decompose into eigenstates of $r$. Here though, things are easier since $r$ doesn't act when $\mu \in \{2,3\}$, so such states satisfy $r \ket{v} = \ket{v}$. On the other hand, modes of $Z^a$ look like $z^a\coloneqq\frac{1}{\sqrt{2}}\left(\alpha_{k}^{a_1} + i \alpha_k^{a_2}\right)$. Since $r Z^a = \omega Z^a$ we find that states of the form $\ket{v} = z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega \ket{v}$. Similarly, states of the form $\ket{v} = \bar z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega^2 \ket{v}$. A summmary of the decomposition into $r$ eigenvalues is in table~\ref{tab:untwisted}.
 
 \textbf{Antichiral NS.} In the right moving sector, the massless heterotic string excitations are $\mathbf{8}_c$ in the Ramond sector, and $\mathbf{8}_v$ in the Neveau-Schwartz sector as fundamental $SO(8)$ representations. These the vector representation in the NS sector is given by state of the form $\ket{v} = \tilde \psi_{-\frac{1}{2}}^{\mu} \ket{0}_{NS}$ which we can classify using the argument above in the trivial $r$ eigenspace for $\mu \in \{2,3\}$, in the $\omega$ eigenspace for states of the form $\ket{v} = \tilde \phi^a_{-\frac{1}{2}} \ket{0}_{NS}$, and the $\omega^2$ eigenspace for the states in the conjugate representations.
 
@@ -169,7 +151,29 @@ Consider any eigenstate $\ket{v}$ of the $U(1)^{16}$ generators $S_a$ that we ha
 \begin{align*}
 	\mathbf{8}_c = \mathbf{3} \oplus \mathbf{1} \oplus \overline{\mathbf{1}} \oplus \overline{\mathbf{3}},
 \end{align*}
-where $\mathbf{1}, \overline{\mathbf{1}}$ are the two singlets with an eigevalue $1$ under $r$, that have either all positive or all negative spins under the $\tilde \phi^a$, and $\mathbf{3}, \overline{\mathbf{3}}$ are the two fundamental representations of $SU(3)$, here with 1 or 2 positive spins under $\tilde \phi^a$ respectively and with $\omega$ and $\omega^2$ eigenvalues under $r$. This can be shown via dimension counting, since the only other representation that firs here is $\mathbf{6}$ but if this was the case, we would be able to change the spin of $\tilde \psi^1 + i\tilde \psi^2$, which our embedding of $SU(3)$ is supposed to leave invariant. 
+where $\mathbf{1}, \overline{\mathbf{1}}$ are the two singlets with an eigevalue $1$ under $r$, that have either all positive or all negative spins under the $\tilde \phi^a$, and $\mathbf{3}, \overline{\mathbf{3}}$ are the two fundamental representations of $SU(3)$, here with 1 or 2 positive spins under $\tilde \phi^a$ respectively and with $\omega$ and $\omega^2$ eigenvalues under $r$. This can be shown via dimension counting, since the only other representation that firs here is $\mathbf{6}$ but if this was the case, we would be able to change the spin of $\tilde \psi^1 + i\tilde \psi^2$, which our embedding of $SU(3)$ is supposed to leave invariant. Everything is summed up in Table~\ref{tab:untwisted}.
+
+\begin{table}
+    \begin{center}
+    \begin{tabular}{ccc}
+    &\multicolumn{2}{c}{\textbf{Representation} or \textbf{Generators}}\\
+    \hline\hline
+    $r$ & {Right Massless } & Left Massless\\
+    \hline
+    \multirow{2}{1em}{$1$}           & $\mathbf{8}				\otimes \mathbf{1}				\otimes \mathbf{1}$
+    			, $\mathbf{1}				\otimes \mathbf{78}				\otimes \mathbf{1}$
+                & \multirow{2}{8em}{$\mathbf{1}$, $\overline{\mathbf{1}}$, $\psi^{\mu}_{-\frac{1}{2}} \ket{0}_{NS}$} \\
+    			& $\mathbf{1}				\otimes \mathbf{1} 				\otimes \mathbf{248}$  
+    			, $\alpha^{\mu}_{-1} \ket{0}$ \\
+    $\omega$    & $\mathbf{3}				\otimes \mathbf{27}				\otimes \mathbf{1}$
+    			, $z^{a}_{-1} \ket{0}$ & $\mathbf{3}$, $\phi^{a}_{-\frac{1}{2}} \ket{0}_{NS}$ \\
+    $\omega^2$  & $\overline{\mathbf{3}}	\otimes \overline{\mathbf{27}}	\otimes \mathbf{1}$
+    			, $\bar z^{a}_{-1} \ket{0}$ & $\overline{\mathbf{3}}$, $\bar \phi^{a}_{-\frac{1}{2}} \ket{0}_{NS}$ \\
+    \hline
+    \end{tabular}
+    \caption{Collection of massless states in the left moving and right moving sectors written as either a basis, or a representation of $SO(3)\times E_6\times E_8$ for the right movers or $SO(8)$ for the left as decribed in the text.\label{tab:untwisted}}
+    \end{center}
+\end{table}
 
 \subsubsection{Twisted Sectors}
 In the twisted sector the complex fields $\Phi$ have periodicity $\Phi(\sigma + \pi) = r \cdot \Phi(\sigma)$. We know how to treat the individual bosonic or fermionic degrees of freedom with twisted boundary conditions, by shifting the commutation relations of the mode algebra. 
