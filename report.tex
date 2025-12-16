@@ -16,13 +16,12 @@ This is where orbifolds come in. Studying the toolkit of orbifolds will allow us
 \tableofcontents
 
 \section{Orbifolding the Compact boson}
-To study the toolkit of orbifolds we first play with the familiar case of the compact boson. This is not meant to be an exhaustive review, rather a familiar example which highlights things that we expect on the heterotic string orbifold which have a murkier geometric interpretation. 
-
+% To study the toolkit of orbifolds we first play with the familiar case of the compact boson. This is not meant to be an exhaustive review, rather a familiar example which highlights things that we expect on the heterotic string orbifold which have a murkier geometric interpretation. 
 We can think of a compact bosonic field $X : \Sigma \to S^1$ as a way to ``wrap'' the 2-dimensional Riemann surface $\Sigma$ on a circle. This interpretation allows us to steal a core mathematical idea to physics.
 \subsection{Mathematical Orbifolds}
 Let $G$ be some finite group with an action on a smooth manifold $M$, then the orbifold $M/G$ is the topological space of $G$ equivalence classes on $M$. In other words an orbifold is the shape we obtain by ``folding'' all the points on a manifold that are related by a symmetry on top of each other.
 
-Back to the example of a circle, we have a $\mathbb{Z}_2$ action that maps $X \mapsto -X$, where $X$ is the angle relative to the fixed point of the action as shown in Fig.~\ref{fig:circle-orbifold}. We can then construct the familiar orbifold of the circle which ends up looking like a line segment. The real physics question is, \textit{can we use the field theory that folds $\Sigma$ to $S^1$ to build a theory that folds $\Sigma$ to the orbifold instead}?
+Back to the example of a circle, a $\mathbb{Z}_2$ action maps $X \mapsto -X$, where $X$ is the angle relative to the fixed point of the action as shown in Fig.~\ref{fig:circle-orbifold}. We can then construct the familiar orbifold of the circle which ends up looking like a line segment. The physics question is, \textit{can we use the field theory that folds $\Sigma$ to $S^1$ to build a theory that folds $\Sigma$ to the orbifold instead}?
 \begin{figure}
 	\centering
 	\includesvg[width=0.7\textwidth]{media/circle_orbifold}
@@ -128,19 +127,15 @@ Notice that the $\mathbb{Z}_3$ is chosen in a special way so as to act only on t
     \caption{$E_8$ Dynkin diagram showing how we can find an $SU(3)\times E_6$ subgroup. The boxed areas contain roots with the right lattices to generate the two factors.}
     \label{fig:dynkin}
 \end{figure}
-
-The fact that we found $E_6$ is exciting on its own merit since at the next section we will see how studying the kind of $E_6$ representations that survive the orbifold will provide a point of contact with the $E_6$ grand unified theory.
-
-Here is an outline for how to figure out the spectrum. We then split the physical massless states in representations of $SU(3) \times E_6\times E_8$ and label them by eigenvalues of $r$ on the right moving and left moving part of the Hilbert space separately. Then we will put left and right together and find out what states in the untwisted sector remain invariant under $\mathbb{Z}_3$ (and GSO). Then we will repeat for the twisted spaces.
+% The fact that we found $E_6$ is exciting on its own merit since at the next section we will see how studying the kind of $E_6$ representations that survive the orbifold will provide a point of contact with the $E_6$ grand unified theory.
+To find the spectrum we split the physical massless states in representations of $SU(3) \times E_6\times E_8$ and label them by eigenvalues of $r$ on the right and left moving part of the Hilbert space separately. Then we put left and right together and find what states in the untwisted sector remain invariant under $\mathbb{Z}_3$ (and GSO). Then we will repeat for the twisted spaces.
 
 \subsubsection{Untwisted Sector}
-\textbf{Chiral Gauge.} Thankfully I don't have to work out the decomposition of the $E_8\times E_8$ adjoint representation $\mathbf{248}\oplus \mathbf{248}$ under $SU(3)\times E_6\times E_8$, because Polchinski has done it for us. Namely, we find
+\textbf{Chiral Gauge.} The decomposition of the $E_8\times E_8$ adjoint representation $\mathbf{248}\oplus \mathbf{248}$ under $SU(3)\times E_6\times E_8$, is given in Polchinski as
 \begin{align*}
 \mathbf{248} \cong (\mathbf{8} \otimes \mathbf{1}) \oplus (\mathbf{1}\otimes \mathbf{78}) \oplus (\mathbf{3}\otimes \mathbf{27}) \oplus (\overline{\mathbf{3}} \otimes \overline{\mathbf{27}}),
 \end{align*} 
-where the notation $a\otimes b$ means that $a$ is a representation of $SU(3)$ and $b$ is a representation of $E_6$. It is worth noting that $\mathbf{78}$ is the adjoint representation of $E_6$, $\mathbf{8}$ the adjoint representation of $SU(3)$, and $\mathbf{3}$ the fundamental representation of $SU(3)$. 
-
-Now that we know how the representations of the gauge excitations will be decomposed, we only need to find out the eigenvalues under $r$ for each of them. Since $r$ is an element of the center of $SU(3)$ we only need to find out how it acts on $\mathbf{1}, \mathbf{3}, \overline{\mathbf{3}}, \mathbf{8}$.
+where in notation $a\otimes b$, $a$ is a representation of $SU(3)$ and $b$ is a representation of $E_6$. It is worth noting that $\mathbf{78}$ is the adjoint representation of $E_6$, $\mathbf{8}$ the adjoint representation of $SU(3)$, and $\mathbf{3}$ the fundamental representation of $SU(3)$. Since $r$ is an element of the center of $SU(3)$ we only need to find out how it acts on $\mathbf{1}, \mathbf{3}, \overline{\mathbf{3}}, \mathbf{8}$.
 
 Consider any eigenstate $\ket{v}$ of the $U(1)^{16}$ generators $S_a$ that we have used to label the center of $SO(16)\times SO(16)$ and define the eigenvalues $S_a \ket{v} = s_i\ket{v}$. Then, we know $e^{i\beta \cdot S} \ket{v} = e^{i\beta\cdot s} \ket{v}$. We can use this to find out how $r$ acts on each representation of the gauge group. The center of $SU(3)$ is $Z_{SU(3)} =\{1, \omega, \omega^2\}$, so in the fundamental representation $\mathbf{3}$, we have that all the states have the same eigenvalues $s_1 = 0, s_2 = 1/3, s_3 = 2/3$ which implies that $r \ket{v} = \omega\ket{v}$. For the anti-fundamental $\overline{\mathbf{3}}$ the order of generators is permuted so we get $r \ket{v} = \omega^{-1}\ket{v} = \omega^2 \ket{v}$. Finally in the adjoint representation $\mathbf{8}$ the center acts as identity, so we get $r \ket{v} = \ket{v}$.
 
