@@ -1,6 +1,7 @@
 \documentclass{homework}
 \usepackage{svg}
 \usepackage{multirow}
+\usepackage{booktabs}
 
 \title{String Theory Final}
 \author{Panos Oikonomou}
@@ -143,6 +144,8 @@ Now that we know how the representations of the gauge excitations will be decomp
 
 Consider any eigenstate $\ket{v}$ of the $U(1)^{16}$ generators $S_a$ that we have used to label the center of $SO(16)\times SO(16)$ and define the eigenvalues $S_a \ket{v} = s_i\ket{v}$. Then, we know $e^{i\beta \cdot S} \ket{v} = e^{i\beta\cdot s} \ket{v}$. We can use this to find out how $r$ acts on each representation of the gauge group. The center of $SU(3)$ is $Z_{SU(3)} =\{1, \omega, \omega^2\}$, so in the fundamental representation $\mathbf{3}$, we have that all the states have the same eigenvalues $s_1 = 0, s_2 = 1/3, s_3 = 2/3$ which implies that $r \ket{v} = \omega\ket{v}$. For the anti-fundamental $\overline{\mathbf{3}}$ the order of generators is permuted so we get $r \ket{v} = \omega^{-1}\ket{v} = \omega^2 \ket{v}$. Finally in the adjoint representation $\mathbf{8}$ the center acts as identity, so we get $r \ket{v} = \ket{v}$.
 
+Notice that $\mathbf{334} = (\mathbf{8}\otimes \mathbf{1} \otimes \mathbf{1})\oplus(\mathbf{1}\otimes \mathbf{78}\otimes \mathbf{1})\oplus(\mathbf{1}\otimes\mathbf{1}\otimes \mathbf{248})$ is the adjoint representation of $SU(3)\times E_6\times E_8$.
+
 \textbf{Chiral bosons.} There are more physical left moving states than the ones created using modes of the $\lambda$s. In particular we have found that any state of the form $\ket{v} = \alpha_{-1}^{\mu} \ket{0}$ satisfies $(L_0 - 1)\ket{v} = 0$. So it would be nice to see how these decompose into eigenstates of $r$. Here though, things are easier since $r$ doesn't act when $\mu \in \{2,3\}$, so such states satisfy $r \ket{v} = \ket{v}$. On the other hand, modes of $Z^a$ look like $z^a\coloneqq\frac{1}{\sqrt{2}}\left(\alpha_{k}^{a_1} + i \alpha_k^{a_2}\right)$. Since $r Z^a = \omega Z^a$ we find that states of the form $\ket{v} = z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega \ket{v}$. Similarly, states of the form $\ket{v} = \bar z^a_{-1} \ket{0}$ mush satisfy $r \ket{v} = \omega^2 \ket{v}$. A summmary of the decomposition into $r$ eigenvalues is in Table~\ref{tab:untwisted}.
 
 \textbf{Antichiral NS.} In the right moving sector, the massless heterotic string excitations are $\mathbf{8}_c$ in the Ramond sector, and $\mathbf{8}_v$ in the Neveau-Schwartz sector as fundamental $SO(8)$ representations. These the vector representation in the NS sector is given by state of the form $\ket{v} = \tilde \psi_{-\frac{1}{2}}^{\mu} \ket{0}_{NS}$ which we can classify using the argument above in the trivial $r$ eigenspace for $\mu \in \{2,3\}$, in the $\omega$ eigenspace for states of the form $\ket{v} = \tilde \phi^a_{-\frac{1}{2}} \ket{0}_{NS}$, and the $\omega^2$ eigenspace for the states in the conjugate representations.
@@ -157,21 +160,24 @@ where $\mathbf{1}, \overline{\mathbf{1}}$ are the two singlets with an eigevalue
     \begin{center}
     \begin{tabular}{ccc}
     &\multicolumn{2}{c}{\textbf{Representation} or \textbf{Generators}}\\
-    \hline\hline
+    \bottomrule\midrule
     $r$ & {Left Massless } & Right Massless\\
     \hline
-    \multirow{2}{0.5em}{$1$} & $\mathbf{8}				\otimes \mathbf{1}				\otimes \mathbf{1}$
-    			, $\mathbf{1}				\otimes \mathbf{78}				\otimes \mathbf{1}$
-                & \multirow{2}{8em}{$\mathbf{1}$, $\overline{\mathbf{1}}$, $\psi^{\mu}_{-\frac{1}{2}} \ket{0}_{NS}$} \\
-    			& $\mathbf{1}				\otimes \mathbf{1} 				\otimes \mathbf{248}$  
-    			, $\alpha^{\mu}_{-1} \ket{0}$ \\
-    $\omega$    & $\mathbf{3}				\otimes \mathbf{27}				\otimes \mathbf{1}$
-    			, $z^{a}_{-1} \ket{0}$ & $\mathbf{3}$, $\phi^{a}_{-\frac{1}{2}} \ket{0}_{NS}$ \\
+    $1$ 		& $\mathbf{334}$
+				, $\alpha^{\mu}_{-1} \ket{0}$ 
+				& $\mathbf{1}$ 
+				, $\overline{\mathbf{1}}$
+				, $\psi^{\mu}_{-\frac{1}{2}} \ket{0}_{NS}$ \\
+    $\omega$    & $\mathbf{3} \otimes \mathbf{27} \otimes \mathbf{1}$
+    			, $z^{a}_{-1} \ket{0}$ & $\mathbf{3}$
+				, $\phi^{a}_{-\frac{1}{2}} \ket{0}_{NS}$ \\
     $\omega^2$  & $\overline{\mathbf{3}}	\otimes \overline{\mathbf{27}}	\otimes \mathbf{1}$
-    			, $\bar z^{a}_{-1} \ket{0}$ & $\overline{\mathbf{3}}$, $\bar \phi^{a}_{-\frac{1}{2}} \ket{0}_{NS}$ \\
+    			, $\bar z^{a}_{-1} \ket{0}$ 
+				& $\overline{\mathbf{3}}$
+				, $\bar \phi^{a}_{-\frac{1}{2}} \ket{0}_{NS}$ \\
     \hline
     \end{tabular}
-    \caption{Collection of massless states in the left moving and right moving sectors written as either a basis, or a representation of $SO(3)\times E_6\times E_8$ for the right movers or $SO(8)$ for the left as decribed in the text.\label{tab:untwisted}}
+    \caption{Collection of massless states in the left moving and right moving sectors written as either a basis, or a representation of $SO(3)\times E_6\times E_8$ for the left movers or $SO(8)$ for the right as decribed in the text.\label{tab:untwisted}}
     \end{center}
 \end{table}
 
@@ -201,7 +207,7 @@ Notice that we can combine the fundamental $\mathbf{10}$ of $SO(10)$ with the fu
     \begin{center}
     \begin{tabular}{ccc}
     &\multicolumn{2}{c}{\textbf{Representation} or \textbf{Generators}}\\
-    \hline\hline
+    \bottomrule\midrule
     $r$ & {Left Massless} & Right Massless\\
     \hline
 	\multirow{2}{0.5em}{$1$} & $\mathbf{1}\otimes \overline{\mathbf{27}} \otimes \mathbf{1}$ & $\ket{0}_{R}$ \\
@@ -214,6 +220,49 @@ Notice that we can combine the fundamental $\mathbf{10}$ of $SO(10)$ with the fu
 
 \textbf{Degeneracy.} Here is an issue. There is not just one way to twist the fields on the torus $T^6$. So far we examined the twist with boundary conditions $X(\sigma + \pi) = r\cdot X(\sigma)$, but we know that $X \sim X + R \sim X + \omega R$, so we could have equally looked into twisted sectors of the form $X(\sigma + \pi) = r\cdot X(\sigma) + \omega R$ and so on. There are three boundary conditions for each dimension, so we would have $3^3 = 27$ possible twisted sectors for each $r, r^2$. Luckily though since they are all related by shifts, they are all isomorphic. The only tangible impact this has in the final calculation of the massless spectrum is that we need to add each twisted sector $27$ times.
 
-\subsection{Spacetime Supersymmetry}
-$\rightarrow$ I'll explain why we expect that only one spacetime $d=4$ supersymmetry should be present and be spontaneously broken in the weak scale, and use this to motivate the oribifold that we took by highlighting cool observations. Perhaps also mention that while the $\mathbf{27}$ and $\overline{\mathbf{27}}$ that survived the orbifold are only accessible through coupling with gravity.
+\subsubsection{Orbifold Massless Spectrum}
+Finally, the moment we've all been waiting for: combining left and right movers in each sector to figure out the massless content of the orbifolded theory.
+
+From the untwisted sector we have states of the form $\alpha^{\mu}_{-1} \psi^{\nu}_{-\frac{1}{2}} \ket{0} \otimes \ket{0}_{NS}$. These states have $d=4$ spacetime degres of freedom where the symmetric part is the metric, antisymmetric is the axion, and the trace is the dilaton. Then we have states of the form $z^a_{-1} \bar \phi^a_{-\frac{1}{2}} \ket{0}\otimes \ket{0}_{NS}$ and their conjugates which give the internal degrees of freedom for these fields. 
+
+In terms of interesting bosonic content is that for any state $\ket{v} \in \mathbf{334}$ we can write the vector $\psi^{\mu}_{-\frac{1}{2}} \ket{v}\otimes \ket{0}_{NS}$ which is a spacetime gauge boson for $SU(3)\times E_6\times E_8$ since it transforms in its ajdoint! We also have a bunch of other internal bosons that aren't as pretty given by $\bar \phi^a \ket{v}\otimes \ket{0}_{NS}$ with $\ket{v} \in \mathbf{3}\otimes \mathbf{27}\otimes \mathbf{1}$ and their conjugates. Then the fermionic content is contains their superpartners. What is noticeable is the absence of spacetime fermions which is what I promised at the begining of this. 
+
+But fear not! They appear in the twisted sector. In particular there we have states of the form $\ket{v}\otimes \ket{0}_{R}^r$ for $\ket{v} \in \mathbf{1}\otimes \overline{\mathbf{27}} \otimes \mathbf{1}$. If anything we have 27 of them (and their conjugates which would correspond to spacetime fermions with the opposite chirality. What is apparent is that they transform in the fundamental of $E_6$, which means that we have charged chiral spacetime fermions under $E_6$! The full field content is shown in Table~\ref{tab:orbifold}.
+\begin{table}
+\begin{center}
+\begin{tabular}{lllc}
+	\textbf{Region} & \textbf{Type} & \textbf{States} & \textbf{Multiplicity} \\
+	\bottomrule\toprule
+	\multirow{2}{7em}{$d=4$ Spacetime Bosons} 
+	& Graviton 	& $\alpha^\mu_{-1} \cdot \psi^{\nu}_{-\frac{1}{2}} \ket{0}\otimes \ket{0}_{NS}$ & 1 \\
+	& Axion 	& $\alpha^\mu_{-1} \wedge \psi^{\nu}_{-\frac{1}{2}} \ket{0}\otimes \ket{0}_{NS}$ & 1 \\
+	& Dilaton 	& $\text{tr\,}\alpha^\mu_{-1} \psi^{\nu}_{-\frac{1}{2}} \ket{0}\otimes \ket{0}_{NS}$ & 1 \\
+	& Gauge 	& $\psi^{\mu}_{-\frac{1}{2}} \ket{v}, \ket{v}\in \mathbf{334}$ & 1\\
+	\midrule
+	\multirow{1}{7em}{$d=4$ Fermions} 
+	& Gravitino & $\alpha^\mu_{-1}\ket{0}\otimes \mathbf{1}$ & 1 \\
+	& Dilatino 	& $\alpha^\mu_{-1}\ket{0}\otimes \overline{\mathbf{1}}$ & 1 \\
+	\midrule
+	\multirow{1}{7em}{Internal Bosons}
+	& Graviton 	& $(z^a_{-1}\cdot \bar \phi^{b}_{-\frac{1}{2}} + \bar z^a_{-1}\cdot \phi^{b}_{-\frac{1}{2}}) \ket{0}\otimes \ket{0}_{NS}$ & 1 \\
+	& Axion 	& $(z^a_{-1}\wedge \bar \phi^{b}_{-\frac{1}{2}} + \bar z^a_{-1}\wedge \phi^{b}_{-\frac{1}{2}}) \ket{0}\otimes \ket{0}_{NS}$ & 1 \\
+	& Dilaton 	& $\text{tr\,}(z^a_{-1} \bar \phi^{b}_{-\frac{1}{2}} + \bar z^a_{-1} \phi^{b}_{-\frac{1}{2}}) \ket{0}\otimes \ket{0}_{NS}$ & 1 \\
+	& Scalar 	& $\bar \phi^{a}_{-\frac{1}{2}} \ket{v}\otimes \ket{0}_{NS}, \ket{v} \in \mathbf{3}\otimes \mathbf{27}\otimes \mathbf{1}$ & 1\\
+	& Scalar 	& $\phi^{a}_{-\frac{1}{2}} \ket{v}\otimes \ket{0}_{NS}, \ket{v} \in \overline{\mathbf{3}}\otimes \overline{\mathbf{27}}\otimes \mathbf{1}$ & 1\\
+	\midrule
+	\multirow{2}{7em}{Target Space Fermions}
+	& Fermion $\lambda = \pm \frac{1}{2}$ & $(\overline{\mathbf{3}}\otimes \overline{\mathbf{27}} \otimes 1) \otimes \mathbf{3}\oplus (\mathbf{3}\otimes \mathbf{27} \otimes 1) \otimes \overline{\mathbf{3}}$& 1 \\
+	& Fermion $\lambda = -\frac{1}{2}$ & $z^a_{-1}\ket{0} \otimes \overline{\mathbf{3}}$ & 1 \\
+	& Fermion $\lambda = +\frac{1}{2}$ & $\bar z^a_{-1}\ket{0} \otimes \mathbf{3}$ & 1 \\
+	& Chiral Fermion & $\mathbf{1}\otimes \overline{\mathbf{27}} \otimes \mathbf{1} \otimes \ket{0}_R$ & 27 \\
+	& Chiral Fermion & $\mathbf{3}\otimes \mathbf{1} \otimes \mathbf{1} \otimes \ket{0}_R$ & 81 \\
+	\midrule
+	\multirow{2}{7em}{Target Space Bosons}
+	& Scalar & $\mathbf{1}\otimes \overline{\mathbf{27}} \otimes \mathbf{1} \otimes \ket{0}_{NS}$ & 27 \\
+	& Scalar & $\mathbf{3}\otimes \mathbf{1} \otimes \mathbf{1} \otimes \ket{0}_{NS}$ & 81 \\
+	\midrule
+\end{tabular}
+\caption{Massless field content of the $E_8\times E_8$ heterotic string $\mathbb{Z}_3$ orbifold.\label{tab:orbifold}}
+\end{center}
+\end{table}
 \end{document}
